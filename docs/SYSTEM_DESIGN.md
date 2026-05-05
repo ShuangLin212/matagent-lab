@@ -1,6 +1,10 @@
 # System Design
 
-MatAgent Lab is structured as a closed-loop materials discovery scaffold. The current implementation uses deterministic local agents so the repository is easy to run, test, and review. The interfaces are intentionally close to what production LLM and simulation integrations would need.
+MatAgent Lab is structured as a closed-loop materials discovery scaffold. The current implementation uses deterministic local agents so the repository is easy to run, test, and review. The interfaces are intentionally close to what production LLM, simulation, HPC, and lab-automation integrations would need.
+
+## Design Principle
+
+The system treats materials discovery as a multi-objective decision process rather than a single generation problem. Each candidate must carry evidence, predicted properties, synthesis risks, device-fit constraints, and a next-compute path. That makes the workflow closer to how scientific teams actually evaluate materials for hardware.
 
 ## Agent Roles
 
@@ -13,6 +17,16 @@ MatAgent Lab is structured as a closed-loop materials discovery scaffold. The cu
 `SynthesisAgent` scores practical viability and produces first-pass processing routes. In a production system, it can query inventory, lab automation constraints, safety systems, and synthesis-planning models.
 
 `CriticAgent` combines evidence, simulated properties, constraints, and viability into a ranked report. This is where active-learning policies or human-in-the-loop review can choose the next experiment.
+
+## Evaluation Signals
+
+- Candidate throughput: how many materials the loop can screen per second.
+- Constraint pass rate: how many candidates satisfy device-specific requirements.
+- Retrieval coverage: how often generated candidates are connected to supporting evidence.
+- Viability score: whether a candidate is plausibly synthesizable and process-compatible.
+- Top score: the current best candidate under a weighted scientific objective.
+
+These metrics are deliberately simple in the demo, but they establish the measurement surface needed for future benchmarking against known materials, simulation accuracy, synthesis hit rate, and human expert review.
 
 ## Data Flow
 
@@ -39,4 +53,3 @@ MatAgent Lab is structured as a closed-loop materials discovery scaffold. The cu
 - Typed dataclasses for structured reports and auditable traces.
 - Deterministic scores so CI remains stable.
 - Small, readable modules that can be replaced by real scientific backends.
-

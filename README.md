@@ -1,14 +1,23 @@
 # MatAgent Lab
 
-MatAgent Lab is a runnable portfolio project for AI-driven materials and chemistry discovery. It demonstrates an LLM-style multi-agent workflow that retrieves scientific context, proposes candidates, estimates material properties, checks synthesis viability, ranks candidates, and emits HPC job templates for deeper simulation.
+MatAgent Lab is a research-oriented prototype for agentic AI in materials and chemistry discovery. It demonstrates an LLM-orchestrated multi-agent workflow that retrieves scientific context, proposes candidate materials, estimates screening properties, critiques synthesis viability, ranks candidates under device constraints, and emits HPC job templates for deeper simulation.
 
-The project is intentionally lightweight: the default demo runs locally with pure Python and no API keys. The architecture is designed so real LLM calls, DFT/MD engines, or lab automation APIs can replace the deterministic demo agents later.
+The project is intentionally lightweight: the default demo runs locally with pure Python and no API keys. The architecture is designed so real LLM calls, DFT/MD engines, active-learning policies, knowledge graphs, or lab automation APIs can replace the deterministic demo agents later.
 
 ## Project Pitch
 
 MatAgent Lab demonstrates how agentic AI can compress early materials discovery by coordinating literature retrieval, candidate generation, computational screening, synthesis-aware critique, and HPC job preparation in one auditable loop. The demo focuses on two hardware-relevant domains: transparent, lightweight materials for AR glasses and sensing or actuating materials for robotics.
 
 This is not just a chatbot wrapper. It is a systems prototype for scientific decision-making: each agent produces structured artifacts, every candidate is scored against physical and practical constraints, and the final report explains the evidence, risks, next experiments, and compute path for follow-up validation.
+
+## Research Contributions
+
+- **Closed-loop agent architecture:** decomposes discovery into literature, candidate, simulation, synthesis, and critic agents with structured handoffs.
+- **Physics-aware screening interface:** parses chemical formulas and exposes transparent feature channels for optical, electromechanical, toxicity, density, resource-risk, and compute-cost reasoning.
+- **Synthesis-aware ranking:** treats manufacturability, process route, toxicity, and supply-chain risk as first-class ranking signals instead of afterthoughts.
+- **HPC-ready experimentation:** converts ranked candidates into Slurm templates for DFT, molecular dynamics, or Monte Carlo follow-up.
+- **Auditable evaluation:** reports retrieval coverage, pass rate, throughput, viability, and top-candidate scores so the loop can be benchmarked and improved.
+- **Production-ready extension points:** isolates where real LLM agents, vector search, DFT/MD engines, active learning, lab automation, and knowledge graphs would plug in.
 
 ## Why This Project Exists
 
@@ -21,6 +30,16 @@ Materials discovery teams increasingly need AI systems that can close the loop b
 - Synthetic viability scoring with route suggestions and risk flags.
 - HPC-oriented Slurm job generation for DFT, molecular dynamics, and Monte Carlo workflows.
 - Benchmarks for throughput, pass rate, score quality, and retrieval coverage.
+
+## Why This Is Frontier-Relevant
+
+The frontier in scientific AI is shifting from single-model prediction toward autonomous, tool-using systems that can reason across literature, computation, synthesis, and experimental feedback. MatAgent Lab is built around that frontier pattern:
+
+- It separates scientific roles into agents instead of asking one model to do everything.
+- It treats materials discovery as a constrained decision loop, not only a generation task.
+- It makes evidence, risk, and next experiments explicit so scientists can audit the recommendation.
+- It is designed for closed-loop improvement, where simulation or lab results can update future candidate selection.
+- It targets hardware-relevant materials where useful candidates must satisfy optical, mechanical, electrical, safety, and manufacturing constraints at the same time.
 
 ## How It Works
 
@@ -39,6 +58,15 @@ The scientific value is the closed-loop design pattern. Materials teams often lo
 For AR glasses, the workflow prioritizes optical transparency, low density, environmental stability, toxicity, and scarce-element risk. For robotics, it balances piezoelectric response, strain potential, processability, fatigue-relevant follow-up experiments, and safe synthesis. That makes the system relevant to real hardware discovery problems where the best material is not just high-performing, but manufacturable, safe, and compatible with device constraints.
 
 The default models are transparent heuristics, not validated physics. That is intentional for a portfolio repository: reviewers can inspect the logic, run the tests, and see exactly where production integrations would connect to DFT, molecular dynamics, Monte Carlo, active learning, or laboratory automation.
+
+## Scientific Roadmap
+
+- Replace formula heuristics with calibrated surrogate models and physics-based backends.
+- Add crystal-structure and molecular-geometry generation for candidates beyond formula-level screening.
+- Integrate dense scientific retrieval over papers, patents, and lab notebooks.
+- Add Bayesian optimization or active learning to select the next highest-value simulation or experiment.
+- Track candidate-property-evidence triples in a knowledge graph.
+- Close the loop by parsing completed HPC or lab results back into the agent memory.
 
 ## Architecture
 
@@ -90,6 +118,12 @@ Committed examples:
 - `examples/sample_ar_glasses_report.json`
 - `examples/sample_robotics_benchmark.json`
 - `examples/BaTiO3_dft.slurm`
+
+Field-facing notes:
+
+- `docs/RESEARCH_POSITIONING.md`
+- `docs/SYSTEM_DESIGN.md`
+- `docs/PORTFOLIO_NOTES.md`
 
 ## Repository Structure
 

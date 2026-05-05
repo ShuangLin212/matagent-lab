@@ -4,6 +4,12 @@ MatAgent Lab is a runnable portfolio project for AI-driven materials and chemist
 
 The project is intentionally lightweight: the default demo runs locally with pure Python and no API keys. The architecture is designed so real LLM calls, DFT/MD engines, or lab automation APIs can replace the deterministic demo agents later.
 
+## Project Pitch
+
+MatAgent Lab demonstrates how agentic AI can compress early materials discovery by coordinating literature retrieval, candidate generation, computational screening, synthesis-aware critique, and HPC job preparation in one auditable loop. The demo focuses on two hardware-relevant domains: transparent, lightweight materials for AR glasses and sensing or actuating materials for robotics.
+
+This is not just a chatbot wrapper. It is a systems prototype for scientific decision-making: each agent produces structured artifacts, every candidate is scored against physical and practical constraints, and the final report explains the evidence, risks, next experiments, and compute path for follow-up validation.
+
 ## Why This Project Exists
 
 Materials discovery teams increasingly need AI systems that can close the loop between literature, computational screening, synthesis planning, and experimental feedback. This repository shows that shape end to end:
@@ -15,6 +21,24 @@ Materials discovery teams increasingly need AI systems that can close the loop b
 - Synthetic viability scoring with route suggestions and risk flags.
 - HPC-oriented Slurm job generation for DFT, molecular dynamics, and Monte Carlo workflows.
 - Benchmarks for throughput, pass rate, score quality, and retrieval coverage.
+
+## How It Works
+
+1. A task config defines the scientific objective, domain, constraints, seed formulas, retrieval budget, and candidate budget.
+2. The literature agent retrieves relevant scientific notes using a small BM25-style RAG index.
+3. The candidate agent proposes materials and attaches retrieved evidence to each candidate.
+4. The simulation agent parses each chemical formula and estimates transparent, auditable screening features.
+5. The synthesis agent estimates process route, viability, step count, toxicity, and supply-chain risks.
+6. The critic agent ranks candidates by domain score, synthesis viability, constraint satisfaction, and evidence coverage.
+7. The CLI writes a structured discovery report, benchmark metrics, or Slurm script for deeper DFT, MD, or Monte Carlo validation.
+
+## Scientific Impact
+
+The scientific value is the closed-loop design pattern. Materials teams often lose time moving manually between papers, candidate lists, simulations, synthesis feasibility checks, and HPC job setup. MatAgent Lab shows how those steps can become one reproducible workflow with explicit handoffs and measurable outcomes.
+
+For AR glasses, the workflow prioritizes optical transparency, low density, environmental stability, toxicity, and scarce-element risk. For robotics, it balances piezoelectric response, strain potential, processability, fatigue-relevant follow-up experiments, and safe synthesis. That makes the system relevant to real hardware discovery problems where the best material is not just high-performing, but manufacturable, safe, and compatible with device constraints.
+
+The default models are transparent heuristics, not validated physics. That is intentional for a portfolio repository: reviewers can inspect the logic, run the tests, and see exactly where production integrations would connect to DFT, molecular dynamics, Monte Carlo, active learning, or laboratory automation.
 
 ## Architecture
 

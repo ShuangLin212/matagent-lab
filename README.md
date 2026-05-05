@@ -129,7 +129,6 @@ src/matagent_lab/
 
 ## Research Notes
 
-- [Manuscript draft](docs/MANUSCRIPT.md)
 - [Research positioning](docs/RESEARCH_POSITIONING.md)
 - [System design](docs/SYSTEM_DESIGN.md)
 - [Portfolio notes](docs/PORTFOLIO_NOTES.md)

@@ -1,0 +1,639 @@
+{
+  "task": {
+    "name": "AR Glasses Transparent Materials Discovery",
+    "domain": "ar_glasses",
+    "objective": "Discover lightweight transparent conductive, dielectric, and barrier materials for all-day wearable AR glasses.",
+    "constraints": {
+      "min_optical_score": 0.55,
+      "min_stability_score": 0.58,
+      "max_toxicity_score": 0.12,
+      "max_hpc_cost_hours": 1.8
+    },
+    "seed_formulas": [
+      "MgAl2O4",
+      "ZnO",
+      "Al2O3",
+      "SnO2"
+    ],
+    "corpus_path": "data/literature_corpus.jsonl",
+    "retrieval_k": 4,
+    "max_candidates": 8
+  },
+  "generated_at": "2026-05-05T15:13:54.125391+00:00",
+  "ranked_results": [
+    {
+      "candidate": {
+        "id": "cand-001",
+        "formula": "MgAl2O4",
+        "name": "Magnesium aluminate spinel",
+        "domain": "ar_glasses",
+        "rationale": "Transparent ceramic spinel with useful hardness and optical-window heritage. Retrieval context: transparent_conductor, oxide, barrier.",
+        "evidence_ids": [
+          "lit-001",
+          "lit-002",
+          "lit-003"
+        ],
+        "metadata": {
+          "workflow": "dft",
+          "processing": "sintering or sputtered thin film"
+        }
+      },
+      "properties": {
+        "num_elements": 3.0,
+        "atoms_per_formula": 7.0,
+        "molecular_weight": 142.26500000000001,
+        "mean_electronegativity": 2.6128571428571425,
+        "std_electronegativity": 0.9595789893149462,
+        "ionic_contrast": 2.13,
+        "mean_covalent_radius_pm": 92.42857142857143,
+        "transition_metal_fraction": 0.0,
+        "polymer_element_fraction": 0.5714285714285714,
+        "oxygen_fraction": 0.5714285714285714,
+        "halogen_fraction": 0.0,
+        "toxic_fraction": 0.0,
+        "supply_risk_fraction": 0.0,
+        "density_proxy": 0.4397681607418856,
+        "lightness_score": 0.5602318392581144,
+        "bandgap_proxy_ev": 4.071,
+        "optical_score": 0.642,
+        "stability_score": 0.671,
+        "resource_score": 1.0,
+        "toxicity_score": 0.0,
+        "hpc_cost_hours": 1.25,
+        "piezoelectric_score": 0.12,
+        "strain_score": 0.057,
+        "processability_score": 0.674,
+        "modulus_proxy": 0.557,
+        "domain_score": 0.674
+      },
+      "synthesis": {
+        "viability_score": 0.76,
+        "route": "precursor mixing, calcination, densification or film deposition, annealing, and characterization",
+        "estimated_steps": 5,
+        "risk_flags": []
+      },
+      "total_score": 0.706,
+      "passed_constraints": true,
+      "violations": [],
+      "risks": [],
+      "next_experiments": [
+        "Run DFT bandgap and defect screening for MgAl2O4.",
+        "Simulate thin-film optical stack impact at target wavelength bands.",
+        "Measure film stress, haze, adhesion, and accelerated humidity stability."
+      ]
+    },
+    {
+      "candidate": {
+        "id": "cand-007",
+        "formula": "ZrO2",
+        "name": "Zirconia high-index nanolaminate",
+        "domain": "ar_glasses",
+        "rationale": "Mechanically robust oxide for optical stack tuning and scratch resistance. Retrieval context: transparent_conductor, oxide, barrier.",
+        "evidence_ids": [
+          "lit-002"
+        ],
+        "metadata": {
+          "workflow": "dft",
+          "processing": "ALD nanolaminate"
+        }
+      },
+      "properties": {
+        "num_elements": 2.0,
+        "atoms_per_formula": 3.0,
+        "molecular_weight": 123.22200000000001,
+        "mean_electronegativity": 2.736666666666667,
+        "std_electronegativity": 0.9946635388690768,
+        "ionic_contrast": 2.11,
+        "mean_covalent_radius_pm": 102.33333333333333,
+        "transition_metal_fraction": 0.3333333333333333,
+        "polymer_element_fraction": 0.6666666666666666,
+        "oxygen_fraction": 0.6666666666666666,
+        "halogen_fraction": 0.0,
+        "toxic_fraction": 0.0,
+        "supply_risk_fraction": 0.0,
+        "density_proxy": 0.8027491856677526,
+        "lightness_score": 0.19725081433224745,
+        "bandgap_proxy_ev": 3.98,
+        "optical_score": 0.623,
+        "stability_score": 0.7,
+        "resource_score": 1.0,
+        "toxicity_score": 0.0,
+        "hpc_cost_hours": 0.75,
+        "piezoelectric_score": 0.3,
+        "strain_score": 0.067,
+        "processability_score": 0.673,
+        "modulus_proxy": 0.673,
+        "domain_score": 0.614
+      },
+      "synthesis": {
+        "viability_score": 0.76,
+        "route": "precursor mixing, calcination, densification or film deposition, annealing, and characterization",
+        "estimated_steps": 5,
+        "risk_flags": []
+      },
+      "total_score": 0.618,
+      "passed_constraints": true,
+      "violations": [],
+      "risks": [],
+      "next_experiments": [
+        "Run DFT bandgap and defect screening for ZrO2.",
+        "Simulate thin-film optical stack impact at target wavelength bands.",
+        "Measure film stress, haze, adhesion, and accelerated humidity stability."
+      ]
+    },
+    {
+      "candidate": {
+        "id": "cand-003",
+        "formula": "Al2O3",
+        "name": "ALD alumina optical barrier",
+        "domain": "ar_glasses",
+        "rationale": "Low-mass oxide barrier candidate for transparent protective coatings. Retrieval context: transparent_conductor, oxide, barrier.",
+        "evidence_ids": [
+          "lit-001",
+          "lit-002",
+          "lit-003"
+        ],
+        "metadata": {
+          "workflow": "dft",
+          "processing": "atomic layer deposition"
+        }
+      },
+      "properties": {
+        "num_elements": 2.0,
+        "atoms_per_formula": 5.0,
+        "molecular_weight": 101.961,
+        "mean_electronegativity": 2.708,
+        "std_electronegativity": 0.8965132458586431,
+        "ionic_contrast": 1.8299999999999998,
+        "mean_covalent_radius_pm": 88.0,
+        "transition_metal_fraction": 0.0,
+        "polymer_element_fraction": 0.6,
+        "oxygen_fraction": 0.6,
+        "halogen_fraction": 0.0,
+        "toxic_fraction": 0.0,
+        "supply_risk_fraction": 0.0,
+        "density_proxy": 0.4634590909090909,
+        "lightness_score": 0.5365409090909091,
+        "bandgap_proxy_ev": 3.607,
+        "optical_score": 0.5,
+        "stability_score": 0.68,
+        "resource_score": 1.0,
+        "toxicity_score": 0.0,
+        "hpc_cost_hours": 0.91,
+        "piezoelectric_score": 0.12,
+        "strain_score": 0.06,
+        "processability_score": 0.7,
+        "modulus_proxy": 0.57,
+        "domain_score": 0.623
+      },
+      "synthesis": {
+        "viability_score": 0.76,
+        "route": "precursor mixing, calcination, densification or film deposition, annealing, and characterization",
+        "estimated_steps": 5,
+        "risk_flags": []
+      },
+      "total_score": 0.584,
+      "passed_constraints": false,
+      "violations": [
+        "optical_score below 0.55"
+      ],
+      "risks": [],
+      "next_experiments": [
+        "Run DFT bandgap and defect screening for Al2O3.",
+        "Simulate thin-film optical stack impact at target wavelength bands.",
+        "Measure film stress, haze, adhesion, and accelerated humidity stability."
+      ]
+    },
+    {
+      "candidate": {
+        "id": "cand-006",
+        "formula": "SiO2",
+        "name": "Silica flexible encapsulant",
+        "domain": "ar_glasses",
+        "rationale": "Transparent, abundant dielectric baseline for optical and moisture barriers. Retrieval context: transparent_conductor, oxide, barrier.",
+        "evidence_ids": [
+          "lit-001",
+          "lit-002",
+          "lit-003"
+        ],
+        "metadata": {
+          "workflow": "md",
+          "processing": "plasma enhanced CVD"
+        }
+      },
+      "properties": {
+        "num_elements": 2.0,
+        "atoms_per_formula": 3.0,
+        "molecular_weight": 60.083,
+        "mean_electronegativity": 2.9266666666666663,
+        "std_electronegativity": 0.7259629620181888,
+        "ionic_contrast": 1.54,
+        "mean_covalent_radius_pm": 81.0,
+        "transition_metal_fraction": 0.0,
+        "polymer_element_fraction": 1.0,
+        "oxygen_fraction": 0.6666666666666666,
+        "halogen_fraction": 0.0,
+        "toxic_fraction": 0.0,
+        "supply_risk_fraction": 0.0,
+        "density_proxy": 0.4945102880658436,
+        "lightness_score": 0.5054897119341564,
+        "bandgap_proxy_ev": 3.157,
+        "optical_score": 0.366,
+        "stability_score": 0.7,
+        "resource_score": 1.0,
+        "toxicity_score": 0.0,
+        "hpc_cost_hours": 0.75,
+        "piezoelectric_score": 0.12,
+        "strain_score": 0.1,
+        "processability_score": 0.836,
+        "modulus_proxy": 0.6,
+        "domain_score": 0.577
+      },
+      "synthesis": {
+        "viability_score": 0.76,
+        "route": "precursor mixing, calcination, densification or film deposition, annealing, and characterization",
+        "estimated_steps": 5,
+        "risk_flags": []
+      },
+      "total_score": 0.556,
+      "passed_constraints": false,
+      "violations": [
+        "optical_score below 0.55"
+      ],
+      "risks": [],
+      "next_experiments": [
+        "Run MD bandgap and defect screening for SiO2.",
+        "Simulate thin-film optical stack impact at target wavelength bands.",
+        "Measure film stress, haze, adhesion, and accelerated humidity stability."
+      ]
+    },
+    {
+      "candidate": {
+        "id": "cand-002",
+        "formula": "ZnO",
+        "name": "Al-doped zinc oxide",
+        "domain": "ar_glasses",
+        "rationale": "Transparent conducting oxide candidate with lower indium exposure. Retrieval context: transparent_conductor, oxide, barrier.",
+        "evidence_ids": [
+          "lit-001"
+        ],
+        "metadata": {
+          "workflow": "dft",
+          "dopant": "Al",
+          "processing": "sputtering"
+        }
+      },
+      "properties": {
+        "num_elements": 2.0,
+        "atoms_per_formula": 2.0,
+        "molecular_weight": 81.37899999999999,
+        "mean_electronegativity": 2.545,
+        "std_electronegativity": 0.895,
+        "ionic_contrast": 1.79,
+        "mean_covalent_radius_pm": 94.0,
+        "transition_metal_fraction": 0.5,
+        "polymer_element_fraction": 0.5,
+        "oxygen_fraction": 0.5,
+        "halogen_fraction": 0.0,
+        "toxic_fraction": 0.0,
+        "supply_risk_fraction": 0.0,
+        "density_proxy": 0.8657340425531914,
+        "lightness_score": 0.13426595744680858,
+        "bandgap_proxy_ev": 3.455,
+        "optical_score": 0.442,
+        "stability_score": 0.65,
+        "resource_score": 1.0,
+        "toxicity_score": 0.0,
+        "hpc_cost_hours": 0.67,
+        "piezoelectric_score": 0.12,
+        "strain_score": 0.05,
+        "processability_score": 0.605,
+        "modulus_proxy": 0.635,
+        "domain_score": 0.525
+      },
+      "synthesis": {
+        "viability_score": 0.76,
+        "route": "precursor mixing, calcination, densification or film deposition, annealing, and characterization",
+        "estimated_steps": 5,
+        "risk_flags": []
+      },
+      "total_score": 0.473,
+      "passed_constraints": false,
+      "violations": [
+        "optical_score below 0.55"
+      ],
+      "risks": [],
+      "next_experiments": [
+        "Run DFT bandgap and defect screening for ZnO.",
+        "Simulate thin-film optical stack impact at target wavelength bands.",
+        "Measure film stress, haze, adhesion, and accelerated humidity stability."
+      ]
+    },
+    {
+      "candidate": {
+        "id": "cand-004",
+        "formula": "SnO2",
+        "name": "F-doped tin oxide",
+        "domain": "ar_glasses",
+        "rationale": "Transparent conducting oxide baseline with mature thin-film process routes. Retrieval context: transparent_conductor, oxide, barrier.",
+        "evidence_ids": [
+          "lit-001"
+        ],
+        "metadata": {
+          "workflow": "dft",
+          "dopant": "F",
+          "processing": "spray pyrolysis or sputtering"
+        }
+      },
+      "properties": {
+        "num_elements": 2.0,
+        "atoms_per_formula": 3.0,
+        "molecular_weight": 150.708,
+        "mean_electronegativity": 2.9466666666666668,
+        "std_electronegativity": 0.6976786907707269,
+        "ionic_contrast": 1.48,
+        "mean_covalent_radius_pm": 90.33333333333333,
+        "transition_metal_fraction": 0.0,
+        "polymer_element_fraction": 0.6666666666666666,
+        "oxygen_fraction": 0.6666666666666666,
+        "halogen_fraction": 0.0,
+        "toxic_fraction": 0.0,
+        "supply_risk_fraction": 0.0,
+        "density_proxy": 1.0,
+        "lightness_score": 0.0,
+        "bandgap_proxy_ev": 3.064,
+        "optical_score": 0.337,
+        "stability_score": 0.7,
+        "resource_score": 1.0,
+        "toxicity_score": 0.0,
+        "hpc_cost_hours": 0.75,
+        "piezoelectric_score": 0.12,
+        "strain_score": 0.067,
+        "processability_score": 0.643,
+        "modulus_proxy": 0.6,
+        "domain_score": 0.466
+      },
+      "synthesis": {
+        "viability_score": 0.76,
+        "route": "precursor mixing, calcination, densification or film deposition, annealing, and characterization",
+        "estimated_steps": 5,
+        "risk_flags": []
+      },
+      "total_score": 0.437,
+      "passed_constraints": false,
+      "violations": [
+        "optical_score below 0.55"
+      ],
+      "risks": [],
+      "next_experiments": [
+        "Run DFT bandgap and defect screening for SnO2.",
+        "Simulate thin-film optical stack impact at target wavelength bands.",
+        "Measure film stress, haze, adhesion, and accelerated humidity stability."
+      ]
+    },
+    {
+      "candidate": {
+        "id": "cand-008",
+        "formula": "In2O3",
+        "name": "Indium oxide transparent conductor",
+        "domain": "ar_glasses",
+        "rationale": "High-performance transparent conducting oxide baseline with supply-risk tradeoffs. Retrieval context: transparent_conductor, oxide, barrier.",
+        "evidence_ids": [
+          "lit-001",
+          "lit-002",
+          "lit-003"
+        ],
+        "metadata": {
+          "workflow": "dft",
+          "processing": "sputtering"
+        }
+      },
+      "properties": {
+        "num_elements": 2.0,
+        "atoms_per_formula": 5.0,
+        "molecular_weight": 277.633,
+        "mean_electronegativity": 2.7760000000000002,
+        "std_electronegativity": 0.813230594604015,
+        "ionic_contrast": 1.66,
+        "mean_covalent_radius_pm": 96.4,
+        "transition_metal_fraction": 0.0,
+        "polymer_element_fraction": 0.6,
+        "oxygen_fraction": 0.6,
+        "halogen_fraction": 0.0,
+        "toxic_fraction": 0.0,
+        "supply_risk_fraction": 0.4,
+        "density_proxy": 1.0,
+        "lightness_score": 0.0,
+        "bandgap_proxy_ev": 3.343,
+        "optical_score": 0.417,
+        "stability_score": 0.68,
+        "resource_score": 0.28,
+        "toxicity_score": 0.0,
+        "hpc_cost_hours": 0.91,
+        "piezoelectric_score": 0.12,
+        "strain_score": 0.06,
+        "processability_score": 0.62,
+        "modulus_proxy": 0.57,
+        "domain_score": 0.379
+      },
+      "synthesis": {
+        "viability_score": 0.68,
+        "route": "precursor mixing, calcination, densification or film deposition, annealing, and characterization",
+        "estimated_steps": 5,
+        "risk_flags": [
+          "supply risk for scarce transparent-electronics element"
+        ]
+      },
+      "total_score": 0.41,
+      "passed_constraints": false,
+      "violations": [
+        "optical_score below 0.55"
+      ],
+      "risks": [
+        "supply risk for scarce transparent-electronics element"
+      ],
+      "next_experiments": [
+        "Run DFT bandgap and defect screening for In2O3.",
+        "Simulate thin-film optical stack impact at target wavelength bands.",
+        "Measure film stress, haze, adhesion, and accelerated humidity stability."
+      ]
+    },
+    {
+      "candidate": {
+        "id": "cand-005",
+        "formula": "Ga2O3",
+        "name": "Gallium oxide dielectric layer",
+        "domain": "ar_glasses",
+        "rationale": "Wide-bandgap oxide for transparent dielectric and sensing stacks. Retrieval context: transparent_conductor, oxide, barrier.",
+        "evidence_ids": [
+          "lit-003"
+        ],
+        "metadata": {
+          "workflow": "dft",
+          "processing": "MOCVD or sputtering"
+        }
+      },
+      "properties": {
+        "num_elements": 2.0,
+        "atoms_per_formula": 5.0,
+        "molecular_weight": 187.44299999999998,
+        "mean_electronegativity": 2.7880000000000003,
+        "std_electronegativity": 0.7985336561473161,
+        "ionic_contrast": 1.63,
+        "mean_covalent_radius_pm": 88.4,
+        "transition_metal_fraction": 0.0,
+        "polymer_element_fraction": 0.6,
+        "oxygen_fraction": 0.6,
+        "halogen_fraction": 0.0,
+        "toxic_fraction": 0.0,
+        "supply_risk_fraction": 0.4,
+        "density_proxy": 0.8481583710407239,
+        "lightness_score": 0.1518416289592761,
+        "bandgap_proxy_ev": 3.297,
+        "optical_score": 0.403,
+        "stability_score": 0.68,
+        "resource_score": 0.28,
+        "toxicity_score": 0.0,
+        "hpc_cost_hours": 0.91,
+        "piezoelectric_score": 0.12,
+        "strain_score": 0.06,
+        "processability_score": 0.643,
+        "modulus_proxy": 0.57,
+        "domain_score": 0.404
+      },
+      "synthesis": {
+        "viability_score": 0.68,
+        "route": "precursor mixing, calcination, densification or film deposition, annealing, and characterization",
+        "estimated_steps": 5,
+        "risk_flags": [
+          "supply risk for scarce transparent-electronics element"
+        ]
+      },
+      "total_score": 0.376,
+      "passed_constraints": false,
+      "violations": [
+        "optical_score below 0.55"
+      ],
+      "risks": [
+        "supply risk for scarce transparent-electronics element"
+      ],
+      "next_experiments": [
+        "Run DFT bandgap and defect screening for Ga2O3.",
+        "Simulate thin-film optical stack impact at target wavelength bands.",
+        "Measure film stress, haze, adhesion, and accelerated humidity stability."
+      ]
+    }
+  ],
+  "metrics": {
+    "elapsed_seconds": 0.0004,
+    "candidate_count": 8.0,
+    "candidates_per_second": 19900.498,
+    "pass_rate": 0.25,
+    "mean_total_score": 0.52,
+    "mean_viability_score": 0.74,
+    "retrieval_coverage": 1.0,
+    "top_score": 0.706
+  },
+  "agent_traces": [
+    {
+      "agent": "LiteratureAgent",
+      "summary": "Retrieved 4 relevant scientific notes for ar_glasses.",
+      "artifacts": {
+        "document_ids": [
+          "lit-001",
+          "lit-002",
+          "lit-003",
+          "lit-007"
+        ],
+        "scores": [
+          7.0094,
+          5.7396,
+          3.5673,
+          2.2777
+        ]
+      }
+    },
+    {
+      "agent": "CandidateAgent",
+      "summary": "Generated 8 candidates from domain templates and retrieved evidence.",
+      "artifacts": {
+        "formulas": [
+          "MgAl2O4",
+          "ZnO",
+          "Al2O3",
+          "SnO2",
+          "Ga2O3",
+          "SiO2",
+          "ZrO2",
+          "In2O3"
+        ]
+      }
+    },
+    {
+      "agent": "SimulationAgent",
+      "summary": "Estimated screening properties with transparent chemistry heuristics.",
+      "artifacts": {
+        "domain_scores": {
+          "cand-001": 0.674,
+          "cand-002": 0.525,
+          "cand-003": 0.623,
+          "cand-004": 0.466,
+          "cand-005": 0.404,
+          "cand-006": 0.577,
+          "cand-007": 0.614,
+          "cand-008": 0.379
+        }
+      }
+    },
+    {
+      "agent": "SynthesisAgent",
+      "summary": "Estimated synthetic viability, process route, and handling risks.",
+      "artifacts": {
+        "cand-001": {
+          "viability": 0.76,
+          "risks": []
+        },
+        "cand-002": {
+          "viability": 0.76,
+          "risks": []
+        },
+        "cand-003": {
+          "viability": 0.76,
+          "risks": []
+        },
+        "cand-004": {
+          "viability": 0.76,
+          "risks": []
+        },
+        "cand-005": {
+          "viability": 0.68,
+          "risks": [
+            "supply risk for scarce transparent-electronics element"
+          ]
+        },
+        "cand-006": {
+          "viability": 0.76,
+          "risks": []
+        },
+        "cand-007": {
+          "viability": 0.76,
+          "risks": []
+        },
+        "cand-008": {
+          "viability": 0.68,
+          "risks": [
+            "supply risk for scarce transparent-electronics element"
+          ]
+        }
+      }
+    },
+    {
+      "agent": "CriticAgent",
+      "summary": "Ranked candidates by domain score, viability, constraints, and evidence coverage.",
+      "artifacts": {
+        "top_candidate": "MgAl2O4",
+        "pass_rate": 0.25
+      }
+    }
+  ]
+}

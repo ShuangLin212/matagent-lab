@@ -1,0 +1,17 @@
+{
+  "name": "Robotics Sensing and Actuation Materials Discovery",
+  "domain": "robotics_actuator",
+  "objective": "Discover next-generation sensing and actuating materials for lightweight robotics hardware.",
+  "constraints": {
+    "min_piezoelectric_score": 0.45,
+    "min_strain_score": 0.35,
+    "min_processability_score": 0.45,
+    "max_toxicity_score": 0.20,
+    "max_hpc_cost_hours": 2.2
+  },
+  "seed_formulas": ["BaTiO3", "C2H2F2", "C2H6OSi", "NiTi"],
+  "corpus_path": "data/literature_corpus.jsonl",
+  "retrieval_k": 4,
+  "max_candidates": 6
+}
+

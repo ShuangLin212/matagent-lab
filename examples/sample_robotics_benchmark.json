@@ -1,0 +1,40 @@
+{
+  "repeats": 3.0,
+  "mean_elapsed_seconds": 0.0006,
+  "mean_top_score": 0.726,
+  "mean_pass_rate": 0.333,
+  "mean_candidates_per_second": 19290.101,
+  "mean_retrieval_coverage": 1.0,
+  "runs": [
+    {
+      "elapsed_seconds": 0.0004,
+      "candidate_count": 6.0,
+      "candidates_per_second": 16599.393,
+      "pass_rate": 0.333,
+      "mean_total_score": 0.582,
+      "mean_viability_score": 0.723,
+      "retrieval_coverage": 1.0,
+      "top_score": 0.726
+    },
+    {
+      "elapsed_seconds": 0.0003,
+      "candidate_count": 6.0,
+      "candidates_per_second": 23983.979,
+      "pass_rate": 0.333,
+      "mean_total_score": 0.582,
+      "mean_viability_score": 0.723,
+      "retrieval_coverage": 1.0,
+      "top_score": 0.726
+    },
+    {
+      "elapsed_seconds": 0.0003,
+      "candidate_count": 6.0,
+      "candidates_per_second": 17286.931,
+      "pass_rate": 0.333,
+      "mean_total_score": 0.582,
+      "mean_viability_score": 0.723,
+      "retrieval_coverage": 1.0,
+      "top_score": 0.726
+    }
+  ]
+}

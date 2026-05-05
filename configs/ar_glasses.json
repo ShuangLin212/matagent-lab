@@ -1,0 +1,16 @@
+{
+  "name": "AR Glasses Transparent Materials Discovery",
+  "domain": "ar_glasses",
+  "objective": "Discover lightweight transparent conductive, dielectric, and barrier materials for all-day wearable AR glasses.",
+  "constraints": {
+    "min_optical_score": 0.55,
+    "min_stability_score": 0.58,
+    "max_toxicity_score": 0.12,
+    "max_hpc_cost_hours": 1.8
+  },
+  "seed_formulas": ["MgAl2O4", "ZnO", "Al2O3", "SnO2"],
+  "corpus_path": "data/literature_corpus.jsonl",
+  "retrieval_k": 4,
+  "max_candidates": 8
+}
+

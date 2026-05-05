@@ -19,7 +19,7 @@
     "retrieval_k": 4,
     "max_candidates": 8
   },
-  "generated_at": "2026-05-05T15:13:54.125391+00:00",
+  "generated_at": "2026-05-05T17:10:31.523612+00:00",
   "ranked_results": [
     {
       "candidate": {
@@ -527,11 +527,20 @@
   "metrics": {
     "elapsed_seconds": 0.0004,
     "candidate_count": 8.0,
-    "candidates_per_second": 19900.498,
+    "candidates_per_second": 20020.872,
     "pass_rate": 0.25,
     "mean_total_score": 0.52,
     "mean_viability_score": 0.74,
     "retrieval_coverage": 1.0,
+    "mean_constraint_violations": 0.75,
+    "constraint_satisfaction_score": 0.812,
+    "mean_risk_flags": 0.25,
+    "mean_toxicity_score": 0.0,
+    "mean_hpc_cost_hours": 0.863,
+    "formula_diversity": 1.0,
+    "pareto_front_size": 1.0,
+    "score_spread": 0.33,
+    "top_candidate_passed": 1.0,
     "top_score": 0.706
   },
   "agent_traces": [

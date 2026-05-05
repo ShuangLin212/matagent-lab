@@ -24,6 +24,9 @@ class BenchmarkRunner:
         pass_rates = [report.metrics["pass_rate"] for report in reports]
         throughput = [report.metrics["candidates_per_second"] for report in reports]
         coverage = [report.metrics["retrieval_coverage"] for report in reports]
+        pareto_sizes = [report.metrics["pareto_front_size"] for report in reports]
+        diversity = [report.metrics["formula_diversity"] for report in reports]
+        satisfaction = [report.metrics["constraint_satisfaction_score"] for report in reports]
 
         return {
             "repeats": float(self.repeats),
@@ -32,6 +35,8 @@ class BenchmarkRunner:
             "mean_pass_rate": round(statistics.mean(pass_rates), 3),
             "mean_candidates_per_second": round(statistics.mean(throughput), 3),
             "mean_retrieval_coverage": round(statistics.mean(coverage), 3),
+            "mean_pareto_front_size": round(statistics.mean(pareto_sizes), 3),
+            "mean_formula_diversity": round(statistics.mean(diversity), 3),
+            "mean_constraint_satisfaction_score": round(statistics.mean(satisfaction), 3),
             "runs": [report.metrics for report in reports],
         }
-

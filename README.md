@@ -59,7 +59,7 @@ PYTHONPATH=src python -m unittest discover -s tests -v
 Discovery reports include:
 
 - `ranked_results`: candidates, scores, constraint status, risks, routes, and next experiments
-- `metrics`: throughput, pass rate, retrieval coverage, viability, and top score
+- `metrics`: throughput, pass rate, retrieval coverage, viability, Pareto-front size, formula diversity, constraint satisfaction, and top score
 - `agent_traces`: retrieved evidence IDs, generated formulas, screening scores, and ranking artifacts
 
 Committed examples:
@@ -97,6 +97,7 @@ src/matagent_lab/
 
 ## Research Notes
 
+- [Manuscript draft](docs/MANUSCRIPT.md)
 - [Research positioning](docs/RESEARCH_POSITIONING.md)
 - [System design](docs/SYSTEM_DESIGN.md)
 - [Portfolio notes](docs/PORTFOLIO_NOTES.md)
@@ -108,4 +109,3 @@ src/matagent_lab/
 - Integrate dense retrieval over papers, patents, and lab notebooks.
 - Add active learning to select the next highest-value simulation or experiment.
 - Parse completed HPC or lab results back into the discovery loop.
-

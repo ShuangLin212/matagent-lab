@@ -13,9 +13,10 @@ class OrchestratorTest(unittest.TestCase):
         report = DiscoveryOrchestrator(config).run()
         self.assertGreaterEqual(len(report.ranked_results), 4)
         self.assertGreater(report.metrics["retrieval_coverage"], 0.0)
+        self.assertGreaterEqual(report.metrics["pareto_front_size"], 1.0)
+        self.assertGreater(report.metrics["formula_diversity"], 0.0)
         self.assertGreaterEqual(report.ranked_results[0].total_score, report.ranked_results[-1].total_score)
 
 
 if __name__ == "__main__":
     unittest.main()
-

@@ -54,6 +54,38 @@ Run tests:
 PYTHONPATH=src python -m unittest discover -s tests -v
 ```
 
+## Try Demo
+
+Run the full loop without installing the package:
+
+```bash
+PYTHONPATH=src python -m matagent_lab discover \
+  --config configs/ar_glasses.json \
+  --out runs/demo_ar_glasses_report.json
+```
+
+Then inspect the top candidate and metrics:
+
+```bash
+python -m json.tool runs/demo_ar_glasses_report.json
+```
+
+What to look for:
+
+- top-ranked transparent materials such as `MgAl2O4` and `ZrO2`
+- constraint pass/fail status for each candidate
+- synthesis routes, toxicity or supply-risk flags, and next experiments
+- metrics such as retrieval coverage, Pareto-front size, formula diversity, and constraint satisfaction
+
+Generate an HPC-ready follow-up job:
+
+```bash
+PYTHONPATH=src python -m matagent_lab slurm \
+  --formula BaTiO3 \
+  --workflow dft \
+  --out runs/demo_BaTiO3_dft.slurm
+```
+
 ## Outputs
 
 Discovery reports include:

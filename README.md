@@ -1,5 +1,10 @@
 # MatAgent Lab
 
+[![CI](https://github.com/ShuangLin212/matagent-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/ShuangLin212/matagent-lab/actions/workflows/ci.yml)
+![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-28566a)
+![License MIT](https://img.shields.io/badge/license-MIT-417b5a)
+![Domain Materials AI](https://img.shields.io/badge/domain-materials%20AI-9b6a17)
+
 MatAgent Lab is a research-oriented prototype for agentic AI in materials and chemistry discovery. It demonstrates an LLM-orchestrated multi-agent workflow that retrieves scientific context, proposes candidate materials, estimates screening properties, critiques synthesis viability, ranks candidates under device constraints, and emits HPC job templates for deeper simulation.
 
 The project is intentionally lightweight: the default demo runs locally with pure Python and no API keys. The architecture is designed so real LLM calls, DFT/MD engines, active-learning policies, knowledge graphs, or lab automation APIs can replace the deterministic demo agents later.
@@ -9,6 +14,20 @@ The project is intentionally lightweight: the default demo runs locally with pur
 MatAgent Lab demonstrates how agentic AI can compress early materials discovery by coordinating literature retrieval, candidate generation, computational screening, synthesis-aware critique, and HPC job preparation in one auditable loop. The demo focuses on two hardware-relevant domains: transparent, lightweight materials for AR glasses and sensing or actuating materials for robotics.
 
 This is not just a chatbot wrapper. It is a systems prototype for scientific decision-making: each agent produces structured artifacts, every candidate is scored against physical and practical constraints, and the final report explains the evidence, risks, next experiments, and compute path for follow-up validation.
+
+## Visual Overview
+
+![Closed-loop agentic materials discovery architecture](docs/figures/closed_loop_architecture.svg)
+
+**Figure 1.** Closed-loop materials discovery architecture. The system separates scientific responsibilities into agents, keeps structured artifacts at each handoff, and turns ranked candidates into HPC-ready validation jobs.
+
+![AR glasses candidate ranking chart](docs/figures/ar_candidate_ranking.svg)
+
+**Figure 2.** Example AR-glasses discovery output. Candidate materials are ranked by total score, while constraint pass/follow-up status remains visible for scientific review.
+
+![Benchmark dashboard for MatAgent Lab](docs/figures/benchmark_dashboard.svg)
+
+**Figure 3.** Benchmark and trace dashboard. The project reports throughput, pass rate, retrieval coverage, viability, and agent artifacts instead of returning an opaque recommendation.
 
 ## Research Contributions
 
@@ -93,6 +112,15 @@ matagent-lab benchmark --config configs/robotics_actuator.json --out runs/roboti
 matagent-lab slurm --formula BaTiO3 --workflow dft --out runs/BaTiO3_dft.slurm
 ```
 
+## Professional Tool Surface
+
+- **CLI-first workflow:** `discover`, `benchmark`, and `slurm` commands cover the main user journey.
+- **Structured artifacts:** discovery reports are JSON, Slurm scripts are committed examples, and agent traces are auditable.
+- **Scientific configs:** domain objectives and constraints live in reproducible JSON task files.
+- **Benchmark harness:** repeated runs report throughput, pass rate, retrieval coverage, and score stability.
+- **CI-ready package:** standard Python packaging, unit tests, and GitHub Actions are included.
+- **Extensible interfaces:** each local agent can be replaced by a real LLM, vector database, simulation backend, or lab API.
+
 Without installing the package:
 
 ```bash
@@ -124,6 +152,7 @@ Field-facing notes:
 - `docs/RESEARCH_POSITIONING.md`
 - `docs/SYSTEM_DESIGN.md`
 - `docs/PORTFOLIO_NOTES.md`
+- `docs/figures/`
 
 ## Repository Structure
 
@@ -139,7 +168,7 @@ src/matagent_lab/
   rag.py             Local scientific retrieval index
 configs/             Discovery task configurations
 data/                Demo literature corpus
-docs/                System design and portfolio notes
+docs/                Research positioning, figures, and system design
 tests/               Standard-library unit tests
 workflows/           Demo DFT, MD, and Monte Carlo entrypoints
 ```

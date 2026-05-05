@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Closed-loop agentic materials discovery architecture</title>
+  <desc id="desc">A professional system diagram showing task configuration, literature retrieval, candidate generation, screening, synthesis critique, ranking, HPC validation, and feedback.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7fbfc"/>
+      <stop offset="1" stop-color="#eef4f1"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-20%" width="120%" height="150%">
+      <feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#17313a" flood-opacity="0.13"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#28566a"/>
+    </marker>
+    <style>
+      .title { font: 700 28px Arial, Helvetica, sans-serif; fill: #17313a; }
+      .subtitle { font: 400 15px Arial, Helvetica, sans-serif; fill: #51656c; }
+      .box-title { font: 700 15px Arial, Helvetica, sans-serif; fill: #17313a; }
+      .box-text { font: 400 12px Arial, Helvetica, sans-serif; fill: #51656c; }
+      .badge-text { font: 700 11px Arial, Helvetica, sans-serif; fill: #ffffff; }
+      .arrow { stroke: #28566a; stroke-width: 2.4; fill: none; marker-end: url(#arrow); }
+      .feedback { stroke: #9b6a17; stroke-width: 2.2; stroke-dasharray: 8 7; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="1200" height="620" rx="22" fill="url(#bg)"/>
+  <text class="title" x="60" y="58">MatAgent Lab: Closed-Loop Materials Discovery</text>
+  <text class="subtitle" x="60" y="84">Agentic coordination layer for scientific retrieval, candidate generation, synthesis-aware screening, and HPC validation.</text>
+
+  <rect x="58" y="122" width="160" height="116" rx="8" fill="#ffffff" stroke="#c9d8d8" filter="url(#shadow)"/>
+  <rect x="78" y="145" width="60" height="22" rx="5" fill="#28566a"/>
+  <text class="badge-text" x="108" y="160" text-anchor="middle">INPUT</text>
+  <text class="box-title" x="78" y="190">Task Config</text>
+  <text class="box-text" x="78" y="212">domain, objective,</text>
+  <text class="box-text" x="78" y="230">constraints, seeds</text>
+
+  <rect x="276" y="122" width="164" height="116" rx="8" fill="#ffffff" stroke="#c9d8d8" filter="url(#shadow)"/>
+  <rect x="296" y="145" width="78" height="22" rx="5" fill="#417b5a"/>
+  <text class="badge-text" x="335" y="160" text-anchor="middle">AGENT 1</text>
+  <text class="box-title" x="296" y="190">Literature Agent</text>
+  <text class="box-text" x="296" y="212">BM25 scientific RAG</text>
+  <text class="box-text" x="296" y="230">with evidence traces</text>
+
+  <rect x="498" y="122" width="164" height="116" rx="8" fill="#ffffff" stroke="#c9d8d8" filter="url(#shadow)"/>
+  <rect x="518" y="145" width="78" height="22" rx="5" fill="#417b5a"/>
+  <text class="badge-text" x="557" y="160" text-anchor="middle">AGENT 2</text>
+  <text class="box-title" x="518" y="190">Candidate Agent</text>
+  <text class="box-text" x="518" y="212">materials proposals</text>
+  <text class="box-text" x="518" y="230">plus rationales</text>
+
+  <rect x="720" y="122" width="164" height="116" rx="8" fill="#ffffff" stroke="#c9d8d8" filter="url(#shadow)"/>
+  <rect x="740" y="145" width="78" height="22" rx="5" fill="#417b5a"/>
+  <text class="badge-text" x="779" y="160" text-anchor="middle">AGENT 3</text>
+  <text class="box-title" x="740" y="190">Simulation Agent</text>
+  <text class="box-text" x="740" y="212">formula features and</text>
+  <text class="box-text" x="740" y="230">screening proxies</text>
+
+  <rect x="942" y="122" width="164" height="116" rx="8" fill="#ffffff" stroke="#c9d8d8" filter="url(#shadow)"/>
+  <rect x="962" y="145" width="78" height="22" rx="5" fill="#417b5a"/>
+  <text class="badge-text" x="1001" y="160" text-anchor="middle">AGENT 4</text>
+  <text class="box-title" x="962" y="190">Synthesis Agent</text>
+  <text class="box-text" x="962" y="212">route, viability,</text>
+  <text class="box-text" x="962" y="230">toxicity, supply risk</text>
+
+  <path class="arrow" d="M 218 180 L 266 180"/>
+  <path class="arrow" d="M 440 180 L 488 180"/>
+  <path class="arrow" d="M 662 180 L 710 180"/>
+  <path class="arrow" d="M 884 180 L 932 180"/>
+
+  <rect x="942" y="332" width="164" height="116" rx="8" fill="#ffffff" stroke="#c9d8d8" filter="url(#shadow)"/>
+  <rect x="962" y="355" width="78" height="22" rx="5" fill="#417b5a"/>
+  <text class="badge-text" x="1001" y="370" text-anchor="middle">AGENT 5</text>
+  <text class="box-title" x="962" y="400">Critic Agent</text>
+  <text class="box-text" x="962" y="422">ranked candidates</text>
+  <text class="box-text" x="962" y="440">and next experiments</text>
+
+  <rect x="720" y="332" width="164" height="116" rx="8" fill="#ffffff" stroke="#c9d8d8" filter="url(#shadow)"/>
+  <rect x="740" y="355" width="58" height="22" rx="5" fill="#9b6a17"/>
+  <text class="badge-text" x="769" y="370" text-anchor="middle">HPC</text>
+  <text class="box-title" x="740" y="400">Validation Jobs</text>
+  <text class="box-text" x="740" y="422">DFT, MD, Monte Carlo</text>
+  <text class="box-text" x="740" y="440">Slurm templates</text>
+
+  <rect x="498" y="332" width="164" height="116" rx="8" fill="#ffffff" stroke="#c9d8d8" filter="url(#shadow)"/>
+  <rect x="518" y="355" width="72" height="22" rx="5" fill="#28566a"/>
+  <text class="badge-text" x="554" y="370" text-anchor="middle">REPORT</text>
+  <text class="box-title" x="518" y="400">Discovery Report</text>
+  <text class="box-text" x="518" y="422">scores, risks, traces,</text>
+  <text class="box-text" x="518" y="440">metrics, evidence IDs</text>
+
+  <rect x="276" y="332" width="164" height="116" rx="8" fill="#ffffff" stroke="#c9d8d8" filter="url(#shadow)"/>
+  <rect x="296" y="355" width="82" height="22" rx="5" fill="#28566a"/>
+  <text class="badge-text" x="337" y="370" text-anchor="middle">MEMORY</text>
+  <text class="box-title" x="296" y="400">Loop Feedback</text>
+  <text class="box-text" x="296" y="422">completed compute or</text>
+  <text class="box-text" x="296" y="440">lab results update policy</text>
+
+  <path class="arrow" d="M 1024 238 L 1024 322"/>
+  <path class="arrow" d="M 942 390 L 894 390"/>
+  <path class="arrow" d="M 720 390 L 672 390"/>
+  <path class="feedback" d="M 498 390 C 360 504 144 514 138 252"/>
+
+  <rect x="58" y="506" width="1048" height="58" rx="8" fill="#17313a"/>
+  <text x="84" y="533" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Scientific contract</text>
+  <text x="84" y="553" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#d9e7e8">Every candidate carries evidence, predicted properties, synthesis risks, constraint checks, and a compute path for follow-up validation.</text>
+</svg>
+

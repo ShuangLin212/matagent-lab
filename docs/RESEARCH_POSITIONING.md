@@ -6,7 +6,7 @@ MatAgent Lab is best framed as a frontier-style systems prototype for autonomous
 
 The next major gains in materials discovery will come from AI systems that coordinate tools and evidence across the whole discovery loop, not only from isolated property predictors. A useful materials agent must retrieve scientific context, propose candidates, call simulation tools, respect synthesis constraints, quantify uncertainty and risk, and recommend the next experiment in a way that a scientist can audit.
 
-MatAgent Lab implements that thesis in a lightweight local form. Each agent has a clear scientific role, every output is structured, and the final report records why a candidate was ranked highly or rejected.
+MatAgent Lab implements that thesis in a lightweight local form. Each agent has a clear scientific role, every output is structured, and the final report records why a candidate was ranked highly or rejected. The latest chemistry layer adds material-family recognition, structural motif inference, perovskite tolerance descriptors, bonding character, mechanism hypotheses, and validation priorities.
 
 ## Why It Matters
 
@@ -20,7 +20,8 @@ For AR glasses, promising materials must combine transparency, low weight, stabi
 - It is constraint-aware: candidates are judged against device and synthesis requirements, not only abstract scores.
 - It is evidence-aware: retrieved literature is attached to candidate rationales and ranking traces.
 - It is compute-aware: the system produces Slurm templates for DFT, MD, and Monte Carlo follow-up.
-- It is benchmarkable: throughput, pass rate, retrieval coverage, and score quality are emitted as structured metrics.
+- It is chemistry-aware: reports include motifs such as spinels, perovskites, nitrides, fluorite-derived oxides, transparent conducting oxides, electroactive polymers, and shape-memory alloys.
+- It is benchmarkable: throughput, pass rate, retrieval coverage, Pareto-front size, formula diversity, constraint satisfaction, and score quality are emitted as structured metrics.
 - It is extensible: deterministic demo agents can be replaced by LLM tool-use agents, vector search, physics engines, active learning, or lab APIs.
 
 ## Boundary Between Demo And Production Science
@@ -32,4 +33,3 @@ That boundary is a strength for a portfolio project: the scientific assumptions 
 ## Suggested Interview Framing
 
 > I built MatAgent Lab to show how agentic AI can operate as the coordination layer for materials discovery. The system retrieves scientific context, proposes candidates, screens them against hardware constraints, critiques synthesis viability, ranks the results, and prepares HPC jobs for deeper validation. The current implementation is lightweight and deterministic for reproducibility, but the architecture is designed for real LLM agents, DFT/MD backends, active learning, and closed-loop lab feedback.
-

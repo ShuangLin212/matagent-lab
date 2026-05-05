@@ -6,7 +6,14 @@ from dataclasses import replace
 from datetime import datetime, timezone
 from pathlib import Path
 
-from .agents import CandidateAgent, CriticAgent, LiteratureAgent, SimulationAgent, SynthesisAgent
+from .agents import (
+    CandidateAgent,
+    CriticAgent,
+    LiteratureAgent,
+    MechanismAgent,
+    SimulationAgent,
+    SynthesisAgent,
+)
 from .chemistry import parse_formula
 from .models import AgentTrace, DiscoveryReport, TaskSpec
 from .rag import ScientificRetrievalIndex
@@ -37,6 +44,7 @@ class DiscoveryOrchestrator:
         self.literature_agent = LiteratureAgent(self.index)
         self.candidate_agent = CandidateAgent()
         self.simulation_agent = SimulationAgent()
+        self.mechanism_agent = MechanismAgent()
         self.synthesis_agent = SynthesisAgent()
         self.critic_agent = CriticAgent()
 
@@ -51,9 +59,11 @@ class DiscoveryOrchestrator:
         traces.append(trace)
         properties, trace = self.simulation_agent.run(task, candidates)
         traces.append(trace)
+        insights, trace = self.mechanism_agent.run(task, candidates, properties)
+        traces.append(trace)
         synthesis, trace = self.synthesis_agent.run(candidates)
         traces.append(trace)
-        ranked_results, trace = self.critic_agent.run(task, candidates, properties, synthesis)
+        ranked_results, trace = self.critic_agent.run(task, candidates, properties, synthesis, insights)
         traces.append(trace)
 
         elapsed_seconds = time.perf_counter() - start

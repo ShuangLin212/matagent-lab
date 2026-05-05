@@ -12,6 +12,5 @@
   "seed_formulas": ["BaTiO3", "C2H2F2", "C2H6OSi", "NiTi"],
   "corpus_path": "data/literature_corpus.jsonl",
   "retrieval_k": 4,
-  "max_candidates": 6
+  "max_candidates": 10
 }
-

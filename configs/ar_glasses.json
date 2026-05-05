@@ -11,6 +11,5 @@
   "seed_formulas": ["MgAl2O4", "ZnO", "Al2O3", "SnO2"],
   "corpus_path": "data/literature_corpus.jsonl",
   "retrieval_k": 4,
-  "max_candidates": 8
+  "max_candidates": 12
 }
-

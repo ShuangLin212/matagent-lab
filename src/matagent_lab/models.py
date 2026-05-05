@@ -60,10 +60,22 @@ class SynthesisAssessment:
 
 
 @dataclass(frozen=True)
+class ChemistryInsight:
+    material_family: str
+    structure_motif: str
+    bonding_character: str
+    mechanism_hypotheses: list[str]
+    tradeoff_notes: list[str]
+    validation_priorities: list[str]
+    descriptors: dict[str, Any] = field(default_factory=dict)
+
+
+@dataclass(frozen=True)
 class ScreeningResult:
     candidate: MaterialCandidate
     properties: dict[str, float]
     synthesis: SynthesisAssessment
+    chemistry: ChemistryInsight
     total_score: float
     passed_constraints: bool
     violations: list[str]
@@ -88,4 +100,3 @@ class DiscoveryReport:
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
-

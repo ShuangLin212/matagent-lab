@@ -4,8 +4,10 @@ from dataclasses import dataclass
 from typing import Iterable
 
 from .chemistry import estimate_material_properties, parse_formula
+from .insights import infer_chemistry_insight
 from .models import (
     AgentTrace,
+    ChemistryInsight,
     MaterialCandidate,
     RetrievedDocument,
     ScreeningResult,
@@ -81,6 +83,34 @@ AR_CANDIDATES = [
         "High-performance transparent conducting oxide baseline with supply-risk tradeoffs.",
         {"workflow": "dft", "processing": "sputtering"},
     ),
+    CandidateTemplate(
+        "HfO2",
+        "Hafnia high-k optical coating",
+        "ar_glasses",
+        "High-index oxide candidate for compact optical stacks and dielectric isolation.",
+        {"workflow": "dft", "processing": "ALD or sputtering"},
+    ),
+    CandidateTemplate(
+        "TiO2",
+        "Titania high-index nanolayer",
+        "ar_glasses",
+        "Wide-use high-index oxide for antireflection, waveguide, and scratch-resistant layers.",
+        {"workflow": "dft", "processing": "ALD, sputtering, or sol-gel"},
+    ),
+    CandidateTemplate(
+        "AlN",
+        "Aluminum nitride transparent piezoelectric film",
+        "ar_glasses",
+        "Transparent nitride platform for acoustic, piezoelectric, and thermal management layers.",
+        {"workflow": "dft", "processing": "reactive sputtering"},
+    ),
+    CandidateTemplate(
+        "ScAlN",
+        "Scandium alloyed aluminum nitride",
+        "ar_glasses",
+        "Wurtzite nitride candidate with enhanced piezoelectric response for integrated sensing.",
+        {"workflow": "dft", "processing": "reactive sputtering", "dopant": "Sc"},
+    ),
 ]
 
 ROBOTICS_CANDIDATES = [
@@ -125,6 +155,34 @@ ROBOTICS_CANDIDATES = [
         "robotics_actuator",
         "Lead-free perovskite platform for tunable dielectrics and oxide electronics.",
         {"workflow": "dft", "processing": "oxide thin-film growth"},
+    ),
+    CandidateTemplate(
+        "K0.5Na0.5NbO3",
+        "KNN lead-free piezoelectric ceramic",
+        "robotics_actuator",
+        "Alkali-niobate perovskite candidate for lead-free piezoelectric actuation.",
+        {"workflow": "dft", "processing": "solid-state synthesis, sintering, and poling"},
+    ),
+    CandidateTemplate(
+        "Bi0.5Na0.5TiO3",
+        "BNT lead-free relaxor ferroelectric",
+        "robotics_actuator",
+        "Lead-free perovskite-like relaxor platform for high-strain actuator compositions.",
+        {"workflow": "dft", "processing": "oxide calcination, sintering, and poling"},
+    ),
+    CandidateTemplate(
+        "AlN",
+        "Aluminum nitride piezoelectric film",
+        "robotics_actuator",
+        "CMOS-compatible wurtzite nitride for thin-film piezoelectric sensing and actuation.",
+        {"workflow": "dft", "processing": "reactive sputtering"},
+    ),
+    CandidateTemplate(
+        "ScAlN",
+        "Scandium alloyed aluminum nitride",
+        "robotics_actuator",
+        "Alloyed wurtzite nitride with increased piezoelectric coefficients for MEMS-scale actuators.",
+        {"workflow": "dft", "processing": "reactive sputtering", "dopant": "Sc"},
     ),
 ]
 
@@ -238,6 +296,32 @@ class SimulationAgent:
         return properties, trace
 
 
+class MechanismAgent:
+    def run(
+        self,
+        task: TaskSpec,
+        candidates: list[MaterialCandidate],
+        properties: dict[str, dict[str, float]],
+    ) -> tuple[dict[str, ChemistryInsight], AgentTrace]:
+        insights = {
+            candidate.id: infer_chemistry_insight(candidate, properties[candidate.id], task.domain)
+            for candidate in candidates
+        }
+        trace = AgentTrace(
+            agent="MechanismAgent",
+            summary="Inferred chemistry families, structural motifs, mechanisms, and validation priorities.",
+            artifacts={
+                candidate_id: {
+                    "family": insight.material_family,
+                    "motif": insight.structure_motif,
+                    "mechanisms": insight.mechanism_hypotheses[:2],
+                }
+                for candidate_id, insight in insights.items()
+            },
+        )
+        return insights, trace
+
+
 class SynthesisAgent:
     def run(
         self, candidates: list[MaterialCandidate]
@@ -309,9 +393,16 @@ class CriticAgent:
         candidates: list[MaterialCandidate],
         properties: dict[str, dict[str, float]],
         synthesis: dict[str, SynthesisAssessment],
+        insights: dict[str, ChemistryInsight],
     ) -> tuple[list[ScreeningResult], AgentTrace]:
         results = [
-            self._score_candidate(task, candidate, properties[candidate.id], synthesis[candidate.id])
+            self._score_candidate(
+                task,
+                candidate,
+                properties[candidate.id],
+                synthesis[candidate.id],
+                insights[candidate.id],
+            )
             for candidate in candidates
         ]
         results.sort(key=lambda item: item.total_score, reverse=True)
@@ -331,6 +422,7 @@ class CriticAgent:
         candidate: MaterialCandidate,
         properties: dict[str, float],
         synthesis: SynthesisAssessment,
+        insight: ChemistryInsight,
     ) -> ScreeningResult:
         violations = self._constraint_violations(task.constraints, properties)
         evidence_score = min(1.0, len(candidate.evidence_ids) / max(task.retrieval_k, 1))
@@ -351,6 +443,7 @@ class CriticAgent:
             candidate=candidate,
             properties=properties,
             synthesis=synthesis,
+            chemistry=insight,
             total_score=total,
             passed_constraints=not violations,
             violations=violations,
@@ -388,4 +481,3 @@ class CriticAgent:
                 "Prototype coupon-scale actuator and compare displacement per gram.",
             ]
         return [f"Run {workflow.upper()} validation and close the loop with measured properties."]
-

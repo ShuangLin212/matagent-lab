@@ -25,7 +25,8 @@ The current scoring functions are transparent heuristics, not validated physical
 - Retrieves scientific context from a local BM25-style RAG index.
 - Generates candidate materials for AR-glasses and robotics tasks.
 - Parses chemical formulas, including fractional stoichiometries such as `Pb(Zr0.52Ti0.48)O3`.
-- Screens optical, electromechanical, density, toxicity, resource-risk, processability, and compute-cost signals.
+- Screens optical, electromechanical, perovskite-tolerance, density, toxicity, resource-risk, processability, and compute-cost signals.
+- Infers chemistry families, structural motifs, bonding character, likely mechanisms, and validation priorities.
 - Scores synthesis viability, route complexity, and practical risk flags.
 - Ranks candidates against domain constraints with auditable agent traces.
 - Emits JSON reports, benchmark metrics, and Slurm templates for DFT, MD, or Monte Carlo follow-up.
@@ -74,6 +75,7 @@ What to look for:
 
 - top-ranked transparent materials such as `MgAl2O4` and `ZrO2`
 - constraint pass/fail status for each candidate
+- chemistry families, structural motifs, and mechanism hypotheses
 - synthesis routes, toxicity or supply-risk flags, and next experiments
 - metrics such as retrieval coverage, Pareto-front size, formula diversity, and constraint satisfaction
 
@@ -92,7 +94,8 @@ Discovery reports include:
 
 - `ranked_results`: candidates, scores, constraint status, risks, routes, and next experiments
 - `metrics`: throughput, pass rate, retrieval coverage, viability, Pareto-front size, formula diversity, constraint satisfaction, and top score
-- `agent_traces`: retrieved evidence IDs, generated formulas, screening scores, and ranking artifacts
+- `chemistry`: material family, structural motif, bonding character, mechanisms, tradeoffs, and validation priorities
+- `agent_traces`: retrieved evidence IDs, generated formulas, mechanism summaries, screening scores, and ranking artifacts
 
 Committed examples:
 
@@ -109,6 +112,7 @@ Task Config
   -> Literature Agent
   -> Candidate Agent
   -> Simulation Agent
+  -> Mechanism Agent
   -> Synthesis Agent
   -> Critic Agent
   -> Ranked Report + HPC Templates
@@ -120,6 +124,7 @@ Core modules:
 src/matagent_lab/
   agents.py          agent roles
   chemistry.py       formula parsing and screening features
+  insights.py        chemistry family, motif, and mechanism inference
   rag.py             local scientific retrieval
   orchestrator.py    end-to-end workflow
   benchmark.py       repeated-run evaluation

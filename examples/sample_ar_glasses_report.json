@@ -17,9 +17,9 @@
     ],
     "corpus_path": "data/literature_corpus.jsonl",
     "retrieval_k": 4,
-    "max_candidates": 8
+    "max_candidates": 12
   },
-  "generated_at": "2026-05-05T17:10:31.523612+00:00",
+  "generated_at": "2026-05-05T19:07:00.212272+00:00",
   "ranked_results": [
     {
       "candidate": {
@@ -54,6 +54,11 @@
         "supply_risk_fraction": 0.0,
         "density_proxy": 0.4397681607418856,
         "lightness_score": 0.5602318392581144,
+        "perovskite_tolerance_factor": 0.0,
+        "octahedral_factor": 0.0,
+        "perovskite_stability_score": 0.0,
+        "a_site_count": 0.0,
+        "b_site_count": 0.0,
         "bandgap_proxy_ev": 4.071,
         "optical_score": 0.642,
         "stability_score": 0.671,
@@ -71,6 +76,32 @@
         "route": "precursor mixing, calcination, densification or film deposition, annealing, and characterization",
         "estimated_steps": 5,
         "risk_flags": []
+      },
+      "chemistry": {
+        "material_family": "oxide spinel",
+        "structure_motif": "AB2O4 spinel network",
+        "bonding_character": "mixed ionic-covalent",
+        "mechanism_hypotheses": [
+          "dense oxygen framework can combine optical transmission with hardness and thermal stability",
+          "wide-gap chemistry supports visible transparency for optical stacks"
+        ],
+        "tradeoff_notes": [
+          "no high-severity chemistry tradeoff triggered by current heuristics"
+        ],
+        "validation_priorities": [
+          "DFT relaxation, band structure, and defect energetics",
+          "thin-film optical constants, haze, stress, and humidity aging"
+        ],
+        "descriptors": {
+          "ionic_contrast": 2.13,
+          "oxygen_fraction": 0.571,
+          "transition_metal_fraction": 0.0,
+          "perovskite_tolerance_factor": 0.0,
+          "octahedral_factor": 0.0,
+          "perovskite_stability_score": 0.0,
+          "toxicity_score": 0.0,
+          "supply_risk_fraction": 0.0
+        }
       },
       "total_score": 0.706,
       "passed_constraints": true,
@@ -113,6 +144,11 @@
         "supply_risk_fraction": 0.0,
         "density_proxy": 0.8027491856677526,
         "lightness_score": 0.19725081433224745,
+        "perovskite_tolerance_factor": 0.0,
+        "octahedral_factor": 0.0,
+        "perovskite_stability_score": 0.0,
+        "a_site_count": 0.0,
+        "b_site_count": 0.0,
         "bandgap_proxy_ev": 3.98,
         "optical_score": 0.623,
         "stability_score": 0.7,
@@ -131,12 +167,132 @@
         "estimated_steps": 5,
         "risk_flags": []
       },
+      "chemistry": {
+        "material_family": "functional oxide",
+        "structure_motif": "fluorite-derived high-k oxide",
+        "bonding_character": "mixed ionic-covalent",
+        "mechanism_hypotheses": [
+          "oxygen sublattice and cation chemistry tune band gap, defects, and dielectric response",
+          "wide-gap chemistry supports visible transparency for optical stacks"
+        ],
+        "tradeoff_notes": [
+          "density proxy is high for lightweight wearable hardware"
+        ],
+        "validation_priorities": [
+          "DFT relaxation, band structure, and defect energetics",
+          "thin-film optical constants, haze, stress, and humidity aging"
+        ],
+        "descriptors": {
+          "ionic_contrast": 2.11,
+          "oxygen_fraction": 0.667,
+          "transition_metal_fraction": 0.333,
+          "perovskite_tolerance_factor": 0.0,
+          "octahedral_factor": 0.0,
+          "perovskite_stability_score": 0.0,
+          "toxicity_score": 0.0,
+          "supply_risk_fraction": 0.0
+        }
+      },
       "total_score": 0.618,
       "passed_constraints": true,
       "violations": [],
       "risks": [],
       "next_experiments": [
         "Run DFT bandgap and defect screening for ZrO2.",
+        "Simulate thin-film optical stack impact at target wavelength bands.",
+        "Measure film stress, haze, adhesion, and accelerated humidity stability."
+      ]
+    },
+    {
+      "candidate": {
+        "id": "cand-010",
+        "formula": "TiO2",
+        "name": "Titania high-index nanolayer",
+        "domain": "ar_glasses",
+        "rationale": "Wide-use high-index oxide for antireflection, waveguide, and scratch-resistant layers. Retrieval context: transparent_conductor, oxide, barrier.",
+        "evidence_ids": [
+          "lit-001",
+          "lit-002",
+          "lit-003"
+        ],
+        "metadata": {
+          "workflow": "dft",
+          "processing": "ALD, sputtering, or sol-gel"
+        }
+      },
+      "properties": {
+        "num_elements": 2.0,
+        "atoms_per_formula": 3.0,
+        "molecular_weight": 79.865,
+        "mean_electronegativity": 2.8066666666666666,
+        "std_electronegativity": 0.8956685895029601,
+        "ionic_contrast": 1.9,
+        "mean_covalent_radius_pm": 97.33333333333333,
+        "transition_metal_fraction": 0.3333333333333333,
+        "polymer_element_fraction": 0.6666666666666666,
+        "oxygen_fraction": 0.6666666666666666,
+        "halogen_fraction": 0.0,
+        "toxic_fraction": 0.0,
+        "supply_risk_fraction": 0.0,
+        "density_proxy": 0.5470205479452055,
+        "lightness_score": 0.4529794520547945,
+        "perovskite_tolerance_factor": 0.0,
+        "octahedral_factor": 0.0,
+        "perovskite_stability_score": 0.0,
+        "a_site_count": 0.0,
+        "b_site_count": 0.0,
+        "bandgap_proxy_ev": 3.655,
+        "optical_score": 0.521,
+        "stability_score": 0.7,
+        "resource_score": 1.0,
+        "toxicity_score": 0.0,
+        "hpc_cost_hours": 0.75,
+        "piezoelectric_score": 0.12,
+        "strain_score": 0.067,
+        "processability_score": 0.711,
+        "modulus_proxy": 0.673,
+        "domain_score": 0.63
+      },
+      "synthesis": {
+        "viability_score": 0.76,
+        "route": "precursor mixing, calcination, densification or film deposition, annealing, and characterization",
+        "estimated_steps": 5,
+        "risk_flags": []
+      },
+      "chemistry": {
+        "material_family": "functional oxide",
+        "structure_motif": "rutile-like oxide network",
+        "bonding_character": "mixed ionic-covalent",
+        "mechanism_hypotheses": [
+          "oxygen sublattice and cation chemistry tune band gap, defects, and dielectric response",
+          "wide-gap chemistry supports visible transparency for optical stacks"
+        ],
+        "tradeoff_notes": [
+          "no high-severity chemistry tradeoff triggered by current heuristics"
+        ],
+        "validation_priorities": [
+          "DFT relaxation, band structure, and defect energetics",
+          "thin-film optical constants, haze, stress, and humidity aging"
+        ],
+        "descriptors": {
+          "ionic_contrast": 1.9,
+          "oxygen_fraction": 0.667,
+          "transition_metal_fraction": 0.333,
+          "perovskite_tolerance_factor": 0.0,
+          "octahedral_factor": 0.0,
+          "perovskite_stability_score": 0.0,
+          "toxicity_score": 0.0,
+          "supply_risk_fraction": 0.0
+        }
+      },
+      "total_score": 0.588,
+      "passed_constraints": false,
+      "violations": [
+        "optical_score below 0.55"
+      ],
+      "risks": [],
+      "next_experiments": [
+        "Run DFT bandgap and defect screening for TiO2.",
         "Simulate thin-film optical stack impact at target wavelength bands.",
         "Measure film stress, haze, adhesion, and accelerated humidity stability."
       ]
@@ -174,6 +330,11 @@
         "supply_risk_fraction": 0.0,
         "density_proxy": 0.4634590909090909,
         "lightness_score": 0.5365409090909091,
+        "perovskite_tolerance_factor": 0.0,
+        "octahedral_factor": 0.0,
+        "perovskite_stability_score": 0.0,
+        "a_site_count": 0,
+        "b_site_count": 2.0,
         "bandgap_proxy_ev": 3.607,
         "optical_score": 0.5,
         "stability_score": 0.68,
@@ -191,6 +352,32 @@
         "route": "precursor mixing, calcination, densification or film deposition, annealing, and characterization",
         "estimated_steps": 5,
         "risk_flags": []
+      },
+      "chemistry": {
+        "material_family": "functional oxide",
+        "structure_motif": "corundum or polymorphic sesquioxide network",
+        "bonding_character": "mixed ionic-covalent",
+        "mechanism_hypotheses": [
+          "oxygen sublattice and cation chemistry tune band gap, defects, and dielectric response",
+          "wide-gap chemistry supports visible transparency for optical stacks"
+        ],
+        "tradeoff_notes": [
+          "no high-severity chemistry tradeoff triggered by current heuristics"
+        ],
+        "validation_priorities": [
+          "DFT relaxation, band structure, and defect energetics",
+          "thin-film optical constants, haze, stress, and humidity aging"
+        ],
+        "descriptors": {
+          "ionic_contrast": 1.83,
+          "oxygen_fraction": 0.6,
+          "transition_metal_fraction": 0.0,
+          "perovskite_tolerance_factor": 0.0,
+          "octahedral_factor": 0.0,
+          "perovskite_stability_score": 0.0,
+          "toxicity_score": 0.0,
+          "supply_risk_fraction": 0.0
+        }
       },
       "total_score": 0.584,
       "passed_constraints": false,
@@ -237,6 +424,11 @@
         "supply_risk_fraction": 0.0,
         "density_proxy": 0.4945102880658436,
         "lightness_score": 0.5054897119341564,
+        "perovskite_tolerance_factor": 0.0,
+        "octahedral_factor": 0.0,
+        "perovskite_stability_score": 0.0,
+        "a_site_count": 0.0,
+        "b_site_count": 0.0,
         "bandgap_proxy_ev": 3.157,
         "optical_score": 0.366,
         "stability_score": 0.7,
@@ -255,6 +447,32 @@
         "estimated_steps": 5,
         "risk_flags": []
       },
+      "chemistry": {
+        "material_family": "functional oxide",
+        "structure_motif": "silicate network former",
+        "bonding_character": "mixed ionic-covalent",
+        "mechanism_hypotheses": [
+          "oxygen sublattice and cation chemistry tune band gap, defects, and dielectric response",
+          "wide-gap chemistry supports visible transparency for optical stacks"
+        ],
+        "tradeoff_notes": [
+          "no high-severity chemistry tradeoff triggered by current heuristics"
+        ],
+        "validation_priorities": [
+          "MD thermal stability, chain mobility, and mechanical response",
+          "thin-film optical constants, haze, stress, and humidity aging"
+        ],
+        "descriptors": {
+          "ionic_contrast": 1.54,
+          "oxygen_fraction": 0.667,
+          "transition_metal_fraction": 0.0,
+          "perovskite_tolerance_factor": 0.0,
+          "octahedral_factor": 0.0,
+          "perovskite_stability_score": 0.0,
+          "toxicity_score": 0.0,
+          "supply_risk_fraction": 0.0
+        }
+      },
       "total_score": 0.556,
       "passed_constraints": false,
       "violations": [
@@ -263,6 +481,97 @@
       "risks": [],
       "next_experiments": [
         "Run MD bandgap and defect screening for SiO2.",
+        "Simulate thin-film optical stack impact at target wavelength bands.",
+        "Measure film stress, haze, adhesion, and accelerated humidity stability."
+      ]
+    },
+    {
+      "candidate": {
+        "id": "cand-009",
+        "formula": "HfO2",
+        "name": "Hafnia high-k optical coating",
+        "domain": "ar_glasses",
+        "rationale": "High-index oxide candidate for compact optical stacks and dielectric isolation. Retrieval context: transparent_conductor, oxide, barrier.",
+        "evidence_ids": [
+          "lit-001"
+        ],
+        "metadata": {
+          "workflow": "dft",
+          "processing": "ALD or sputtering"
+        }
+      },
+      "properties": {
+        "num_elements": 2.0,
+        "atoms_per_formula": 3.0,
+        "molecular_weight": 210.488,
+        "mean_electronegativity": 2.7266666666666666,
+        "std_electronegativity": 1.0088056744928078,
+        "ionic_contrast": 2.1399999999999997,
+        "mean_covalent_radius_pm": 102.33333333333333,
+        "transition_metal_fraction": 0.3333333333333333,
+        "polymer_element_fraction": 0.6666666666666666,
+        "oxygen_fraction": 0.6666666666666666,
+        "halogen_fraction": 0.0,
+        "toxic_fraction": 0.0,
+        "supply_risk_fraction": 0.3333333333333333,
+        "density_proxy": 1.0,
+        "lightness_score": 0.0,
+        "perovskite_tolerance_factor": 0.0,
+        "octahedral_factor": 0.0,
+        "perovskite_stability_score": 0.0,
+        "a_site_count": 0.0,
+        "b_site_count": 0.0,
+        "bandgap_proxy_ev": 4.027,
+        "optical_score": 0.638,
+        "stability_score": 0.7,
+        "resource_score": 0.4,
+        "toxicity_score": 0.0,
+        "hpc_cost_hours": 0.75,
+        "piezoelectric_score": 0.12,
+        "strain_score": 0.067,
+        "processability_score": 0.643,
+        "modulus_proxy": 0.673,
+        "domain_score": 0.49
+      },
+      "synthesis": {
+        "viability_score": 0.76,
+        "route": "precursor mixing, calcination, densification or film deposition, annealing, and characterization",
+        "estimated_steps": 5,
+        "risk_flags": []
+      },
+      "chemistry": {
+        "material_family": "functional oxide",
+        "structure_motif": "fluorite-derived high-k oxide",
+        "bonding_character": "mixed ionic-covalent",
+        "mechanism_hypotheses": [
+          "oxygen sublattice and cation chemistry tune band gap, defects, and dielectric response",
+          "wide-gap chemistry supports visible transparency for optical stacks"
+        ],
+        "tradeoff_notes": [
+          "scarce or supply-sensitive elements may limit scale-up",
+          "density proxy is high for lightweight wearable hardware"
+        ],
+        "validation_priorities": [
+          "DFT relaxation, band structure, and defect energetics",
+          "thin-film optical constants, haze, stress, and humidity aging"
+        ],
+        "descriptors": {
+          "ionic_contrast": 2.14,
+          "oxygen_fraction": 0.667,
+          "transition_metal_fraction": 0.333,
+          "perovskite_tolerance_factor": 0.0,
+          "octahedral_factor": 0.0,
+          "perovskite_stability_score": 0.0,
+          "toxicity_score": 0.0,
+          "supply_risk_fraction": 0.333
+        }
+      },
+      "total_score": 0.542,
+      "passed_constraints": true,
+      "violations": [],
+      "risks": [],
+      "next_experiments": [
+        "Run DFT bandgap and defect screening for HfO2.",
         "Simulate thin-film optical stack impact at target wavelength bands.",
         "Measure film stress, haze, adhesion, and accelerated humidity stability."
       ]
@@ -299,6 +608,11 @@
         "supply_risk_fraction": 0.0,
         "density_proxy": 0.8657340425531914,
         "lightness_score": 0.13426595744680858,
+        "perovskite_tolerance_factor": 0.0,
+        "octahedral_factor": 0.0,
+        "perovskite_stability_score": 0.0,
+        "a_site_count": 0.0,
+        "b_site_count": 0.0,
         "bandgap_proxy_ev": 3.455,
         "optical_score": 0.442,
         "stability_score": 0.65,
@@ -316,6 +630,34 @@
         "route": "precursor mixing, calcination, densification or film deposition, annealing, and characterization",
         "estimated_steps": 5,
         "risk_flags": []
+      },
+      "chemistry": {
+        "material_family": "functional oxide",
+        "structure_motif": "wurtzite-like transparent oxide",
+        "bonding_character": "mixed ionic-covalent",
+        "mechanism_hypotheses": [
+          "oxygen sublattice and cation chemistry tune band gap, defects, and dielectric response",
+          "aliovalent doping or oxygen-vacancy control can tune transparent conductivity",
+          "wide-gap chemistry supports visible transparency for optical stacks"
+        ],
+        "tradeoff_notes": [
+          "density proxy is high for lightweight wearable hardware"
+        ],
+        "validation_priorities": [
+          "DFT relaxation, band structure, and defect energetics",
+          "thin-film optical constants, haze, stress, and humidity aging",
+          "carrier concentration, mobility, and visible transmittance after processing"
+        ],
+        "descriptors": {
+          "ionic_contrast": 1.79,
+          "oxygen_fraction": 0.5,
+          "transition_metal_fraction": 0.5,
+          "perovskite_tolerance_factor": 0.0,
+          "octahedral_factor": 0.0,
+          "perovskite_stability_score": 0.0,
+          "toxicity_score": 0.0,
+          "supply_risk_fraction": 0.0
+        }
       },
       "total_score": 0.473,
       "passed_constraints": false,
@@ -361,6 +703,11 @@
         "supply_risk_fraction": 0.0,
         "density_proxy": 1.0,
         "lightness_score": 0.0,
+        "perovskite_tolerance_factor": 0.0,
+        "octahedral_factor": 0.0,
+        "perovskite_stability_score": 0.0,
+        "a_site_count": 0.0,
+        "b_site_count": 0.0,
         "bandgap_proxy_ev": 3.064,
         "optical_score": 0.337,
         "stability_score": 0.7,
@@ -378,6 +725,34 @@
         "route": "precursor mixing, calcination, densification or film deposition, annealing, and characterization",
         "estimated_steps": 5,
         "risk_flags": []
+      },
+      "chemistry": {
+        "material_family": "functional oxide",
+        "structure_motif": "rutile-like oxide network",
+        "bonding_character": "mixed ionic-covalent",
+        "mechanism_hypotheses": [
+          "oxygen sublattice and cation chemistry tune band gap, defects, and dielectric response",
+          "aliovalent doping or oxygen-vacancy control can tune transparent conductivity",
+          "wide-gap chemistry supports visible transparency for optical stacks"
+        ],
+        "tradeoff_notes": [
+          "density proxy is high for lightweight wearable hardware"
+        ],
+        "validation_priorities": [
+          "DFT relaxation, band structure, and defect energetics",
+          "thin-film optical constants, haze, stress, and humidity aging",
+          "carrier concentration, mobility, and visible transmittance after processing"
+        ],
+        "descriptors": {
+          "ionic_contrast": 1.48,
+          "oxygen_fraction": 0.667,
+          "transition_metal_fraction": 0.0,
+          "perovskite_tolerance_factor": 0.0,
+          "octahedral_factor": 0.0,
+          "perovskite_stability_score": 0.0,
+          "toxicity_score": 0.0,
+          "supply_risk_fraction": 0.0
+        }
       },
       "total_score": 0.437,
       "passed_constraints": false,
@@ -424,6 +799,11 @@
         "supply_risk_fraction": 0.4,
         "density_proxy": 1.0,
         "lightness_score": 0.0,
+        "perovskite_tolerance_factor": 0.0,
+        "octahedral_factor": 0.0,
+        "perovskite_stability_score": 0.0,
+        "a_site_count": 0,
+        "b_site_count": 0,
         "bandgap_proxy_ev": 3.343,
         "optical_score": 0.417,
         "stability_score": 0.68,
@@ -444,6 +824,35 @@
           "supply risk for scarce transparent-electronics element"
         ]
       },
+      "chemistry": {
+        "material_family": "functional oxide",
+        "structure_motif": "bixbyite-like transparent conducting oxide",
+        "bonding_character": "mixed ionic-covalent",
+        "mechanism_hypotheses": [
+          "oxygen sublattice and cation chemistry tune band gap, defects, and dielectric response",
+          "aliovalent doping or oxygen-vacancy control can tune transparent conductivity",
+          "wide-gap chemistry supports visible transparency for optical stacks"
+        ],
+        "tradeoff_notes": [
+          "scarce or supply-sensitive elements may limit scale-up",
+          "density proxy is high for lightweight wearable hardware"
+        ],
+        "validation_priorities": [
+          "DFT relaxation, band structure, and defect energetics",
+          "thin-film optical constants, haze, stress, and humidity aging",
+          "carrier concentration, mobility, and visible transmittance after processing"
+        ],
+        "descriptors": {
+          "ionic_contrast": 1.66,
+          "oxygen_fraction": 0.6,
+          "transition_metal_fraction": 0.0,
+          "perovskite_tolerance_factor": 0.0,
+          "octahedral_factor": 0.0,
+          "perovskite_stability_score": 0.0,
+          "toxicity_score": 0.0,
+          "supply_risk_fraction": 0.4
+        }
+      },
       "total_score": 0.41,
       "passed_constraints": false,
       "violations": [
@@ -454,6 +863,102 @@
       ],
       "next_experiments": [
         "Run DFT bandgap and defect screening for In2O3.",
+        "Simulate thin-film optical stack impact at target wavelength bands.",
+        "Measure film stress, haze, adhesion, and accelerated humidity stability."
+      ]
+    },
+    {
+      "candidate": {
+        "id": "cand-012",
+        "formula": "ScAlN",
+        "name": "Scandium alloyed aluminum nitride",
+        "domain": "ar_glasses",
+        "rationale": "Wurtzite nitride candidate with enhanced piezoelectric response for integrated sensing. Retrieval context: transparent_conductor, oxide, barrier.",
+        "evidence_ids": [
+          "lit-001",
+          "lit-002",
+          "lit-003"
+        ],
+        "metadata": {
+          "workflow": "dft",
+          "processing": "reactive sputtering",
+          "dopant": "Sc"
+        }
+      },
+      "properties": {
+        "num_elements": 3.0,
+        "atoms_per_formula": 3.0,
+        "molecular_weight": 85.94500000000001,
+        "mean_electronegativity": 2.0033333333333334,
+        "std_electronegativity": 0.7401050976419197,
+        "ionic_contrast": 1.68,
+        "mean_covalent_radius_pm": 120.66666666666667,
+        "transition_metal_fraction": 0.3333333333333333,
+        "polymer_element_fraction": 0.3333333333333333,
+        "oxygen_fraction": 0.0,
+        "halogen_fraction": 0.0,
+        "toxic_fraction": 0.0,
+        "supply_risk_fraction": 0.0,
+        "density_proxy": 0.47483425414364644,
+        "lightness_score": 0.5251657458563536,
+        "perovskite_tolerance_factor": 0.0,
+        "octahedral_factor": 0.0,
+        "perovskite_stability_score": 0.0,
+        "a_site_count": 0.0,
+        "b_site_count": 0.0,
+        "bandgap_proxy_ev": 3.094,
+        "optical_score": 0.279,
+        "stability_score": 0.5,
+        "resource_score": 1.0,
+        "toxicity_score": 0.0,
+        "hpc_cost_hours": 0.93,
+        "piezoelectric_score": 0.12,
+        "strain_score": 0.033,
+        "processability_score": 0.585,
+        "modulus_proxy": 0.373,
+        "domain_score": 0.488
+      },
+      "synthesis": {
+        "viability_score": 0.67,
+        "route": "literature-guided synthesis planning followed by small-batch screening",
+        "estimated_steps": 4,
+        "risk_flags": []
+      },
+      "chemistry": {
+        "material_family": "III-nitride",
+        "structure_motif": "wurtzite nitride lattice",
+        "bonding_character": "mixed ionic-covalent",
+        "mechanism_hypotheses": [
+          "wurtzite polarity and alloying can enhance piezoelectric response",
+          "wide-gap chemistry supports visible transparency for optical stacks"
+        ],
+        "tradeoff_notes": [
+          "no high-severity chemistry tradeoff triggered by current heuristics"
+        ],
+        "validation_priorities": [
+          "DFT relaxation, band structure, and defect energetics",
+          "thin-film optical constants, haze, stress, and humidity aging"
+        ],
+        "descriptors": {
+          "ionic_contrast": 1.68,
+          "oxygen_fraction": 0.0,
+          "transition_metal_fraction": 0.333,
+          "perovskite_tolerance_factor": 0.0,
+          "octahedral_factor": 0.0,
+          "perovskite_stability_score": 0.0,
+          "toxicity_score": 0.0,
+          "supply_risk_fraction": 0.0
+        }
+      },
+      "total_score": 0.385,
+      "passed_constraints": false,
+      "violations": [
+        "optical_score below 0.55",
+        "stability_score below 0.58"
+      ],
+      "risks": [],
+      "next_experiments": [
+        "Run DFT bandgap and defect screening for ScAlN.",
         "Simulate thin-film optical stack impact at target wavelength bands.",
         "Measure film stress, haze, adhesion, and accelerated humidity stability."
       ]
@@ -489,6 +994,11 @@
         "supply_risk_fraction": 0.4,
         "density_proxy": 0.8481583710407239,
         "lightness_score": 0.1518416289592761,
+        "perovskite_tolerance_factor": 0.0,
+        "octahedral_factor": 0.0,
+        "perovskite_stability_score": 0.0,
+        "a_site_count": 0,
+        "b_site_count": 0,
         "bandgap_proxy_ev": 3.297,
         "optical_score": 0.403,
         "stability_score": 0.68,
@@ -509,6 +1019,33 @@
           "supply risk for scarce transparent-electronics element"
         ]
       },
+      "chemistry": {
+        "material_family": "functional oxide",
+        "structure_motif": "corundum or polymorphic sesquioxide network",
+        "bonding_character": "mixed ionic-covalent",
+        "mechanism_hypotheses": [
+          "oxygen sublattice and cation chemistry tune band gap, defects, and dielectric response",
+          "wide-gap chemistry supports visible transparency for optical stacks"
+        ],
+        "tradeoff_notes": [
+          "scarce or supply-sensitive elements may limit scale-up",
+          "density proxy is high for lightweight wearable hardware"
+        ],
+        "validation_priorities": [
+          "DFT relaxation, band structure, and defect energetics",
+          "thin-film optical constants, haze, stress, and humidity aging"
+        ],
+        "descriptors": {
+          "ionic_contrast": 1.63,
+          "oxygen_fraction": 0.6,
+          "transition_metal_fraction": 0.0,
+          "perovskite_tolerance_factor": 0.0,
+          "octahedral_factor": 0.0,
+          "perovskite_stability_score": 0.0,
+          "toxicity_score": 0.0,
+          "supply_risk_fraction": 0.4
+        }
+      },
       "total_score": 0.376,
       "passed_constraints": false,
       "violations": [
@@ -522,24 +1059,118 @@
         "Simulate thin-film optical stack impact at target wavelength bands.",
         "Measure film stress, haze, adhesion, and accelerated humidity stability."
       ]
+    },
+    {
+      "candidate": {
+        "id": "cand-011",
+        "formula": "AlN",
+        "name": "Aluminum nitride transparent piezoelectric film",
+        "domain": "ar_glasses",
+        "rationale": "Transparent nitride platform for acoustic, piezoelectric, and thermal management layers. Retrieval context: transparent_conductor, oxide, barrier.",
+        "evidence_ids": [
+          "lit-001",
+          "lit-002",
+          "lit-003"
+        ],
+        "metadata": {
+          "workflow": "dft",
+          "processing": "reactive sputtering"
+        }
+      },
+      "properties": {
+        "num_elements": 2.0,
+        "atoms_per_formula": 2.0,
+        "molecular_weight": 40.989,
+        "mean_electronegativity": 2.325,
+        "std_electronegativity": 0.7150000000000001,
+        "ionic_contrast": 1.43,
+        "mean_covalent_radius_pm": 96.0,
+        "transition_metal_fraction": 0.0,
+        "polymer_element_fraction": 0.5,
+        "oxygen_fraction": 0.0,
+        "halogen_fraction": 0.0,
+        "toxic_fraction": 0.0,
+        "supply_risk_fraction": 0.0,
+        "density_proxy": 0.42696874999999995,
+        "lightness_score": 0.5730312500000001,
+        "perovskite_tolerance_factor": 0.0,
+        "octahedral_factor": 0.0,
+        "perovskite_stability_score": 0.0,
+        "a_site_count": 0.0,
+        "b_site_count": 0.0,
+        "bandgap_proxy_ev": 2.766,
+        "optical_score": 0.177,
+        "stability_score": 0.5,
+        "resource_score": 1.0,
+        "toxicity_score": 0.0,
+        "hpc_cost_hours": 0.67,
+        "piezoelectric_score": 0.12,
+        "strain_score": 0.05,
+        "processability_score": 0.671,
+        "modulus_proxy": 0.3,
+        "domain_score": 0.453
+      },
+      "synthesis": {
+        "viability_score": 0.67,
+        "route": "literature-guided synthesis planning followed by small-batch screening",
+        "estimated_steps": 4,
+        "risk_flags": []
+      },
+      "chemistry": {
+        "material_family": "III-nitride",
+        "structure_motif": "wurtzite nitride lattice",
+        "bonding_character": "mixed ionic-covalent",
+        "mechanism_hypotheses": [
+          "wurtzite polarity and alloying can enhance piezoelectric response"
+        ],
+        "tradeoff_notes": [
+          "no high-severity chemistry tradeoff triggered by current heuristics"
+        ],
+        "validation_priorities": [
+          "DFT relaxation, band structure, and defect energetics",
+          "thin-film optical constants, haze, stress, and humidity aging"
+        ],
+        "descriptors": {
+          "ionic_contrast": 1.43,
+          "oxygen_fraction": 0.0,
+          "transition_metal_fraction": 0.0,
+          "perovskite_tolerance_factor": 0.0,
+          "octahedral_factor": 0.0,
+          "perovskite_stability_score": 0.0,
+          "toxicity_score": 0.0,
+          "supply_risk_fraction": 0.0
+        }
+      },
+      "total_score": 0.363,
+      "passed_constraints": false,
+      "violations": [
+        "optical_score below 0.55",
+        "stability_score below 0.58"
+      ],
+      "risks": [],
+      "next_experiments": [
+        "Run DFT bandgap and defect screening for AlN.",
+        "Simulate thin-film optical stack impact at target wavelength bands.",
+        "Measure film stress, haze, adhesion, and accelerated humidity stability."
+      ]
     }
   ],
   "metrics": {
-    "elapsed_seconds": 0.0004,
-    "candidate_count": 8.0,
-    "candidates_per_second": 20020.872,
+    "elapsed_seconds": 0.0008,
+    "candidate_count": 12.0,
+    "candidates_per_second": 15802.469,
     "pass_rate": 0.25,
-    "mean_total_score": 0.52,
-    "mean_viability_score": 0.74,
+    "mean_total_score": 0.503,
+    "mean_viability_score": 0.732,
     "retrieval_coverage": 1.0,
-    "mean_constraint_violations": 0.75,
-    "constraint_satisfaction_score": 0.812,
-    "mean_risk_flags": 0.25,
+    "mean_constraint_violations": 0.917,
+    "constraint_satisfaction_score": 0.771,
+    "mean_risk_flags": 0.167,
     "mean_toxicity_score": 0.0,
-    "mean_hpc_cost_hours": 0.863,
+    "mean_hpc_cost_hours": 0.833,
     "formula_diversity": 1.0,
     "pareto_front_size": 1.0,
-    "score_spread": 0.33,
+    "score_spread": 0.343,
     "top_candidate_passed": 1.0,
     "top_score": 0.706
   },
@@ -555,16 +1186,16 @@
           "lit-007"
         ],
         "scores": [
-          7.0094,
-          5.7396,
-          3.5673,
-          2.2777
+          7.9563,
+          6.4348,
+          4.0642,
+          2.0751
         ]
       }
     },
     {
       "agent": "CandidateAgent",
-      "summary": "Generated 8 candidates from domain templates and retrieved evidence.",
+      "summary": "Generated 12 candidates from domain templates and retrieved evidence.",
       "artifacts": {
         "formulas": [
           "MgAl2O4",
@@ -574,7 +1205,11 @@
           "Ga2O3",
           "SiO2",
           "ZrO2",
-          "In2O3"
+          "In2O3",
+          "HfO2",
+          "TiO2",
+          "AlN",
+          "ScAlN"
         ]
       }
     },
@@ -590,7 +1225,112 @@
           "cand-005": 0.404,
           "cand-006": 0.577,
           "cand-007": 0.614,
-          "cand-008": 0.379
+          "cand-008": 0.379,
+          "cand-009": 0.49,
+          "cand-010": 0.63,
+          "cand-011": 0.453,
+          "cand-012": 0.488
+        }
+      }
+    },
+    {
+      "agent": "MechanismAgent",
+      "summary": "Inferred chemistry families, structural motifs, mechanisms, and validation priorities.",
+      "artifacts": {
+        "cand-001": {
+          "family": "oxide spinel",
+          "motif": "AB2O4 spinel network",
+          "mechanisms": [
+            "dense oxygen framework can combine optical transmission with hardness and thermal stability",
+            "wide-gap chemistry supports visible transparency for optical stacks"
+          ]
+        },
+        "cand-002": {
+          "family": "functional oxide",
+          "motif": "wurtzite-like transparent oxide",
+          "mechanisms": [
+            "oxygen sublattice and cation chemistry tune band gap, defects, and dielectric response",
+            "aliovalent doping or oxygen-vacancy control can tune transparent conductivity"
+          ]
+        },
+        "cand-003": {
+          "family": "functional oxide",
+          "motif": "corundum or polymorphic sesquioxide network",
+          "mechanisms": [
+            "oxygen sublattice and cation chemistry tune band gap, defects, and dielectric response",
+            "wide-gap chemistry supports visible transparency for optical stacks"
+          ]
+        },
+        "cand-004": {
+          "family": "functional oxide",
+          "motif": "rutile-like oxide network",
+          "mechanisms": [
+            "oxygen sublattice and cation chemistry tune band gap, defects, and dielectric response",
+            "aliovalent doping or oxygen-vacancy control can tune transparent conductivity"
+          ]
+        },
+        "cand-005": {
+          "family": "functional oxide",
+          "motif": "corundum or polymorphic sesquioxide network",
+          "mechanisms": [
+            "oxygen sublattice and cation chemistry tune band gap, defects, and dielectric response",
+            "wide-gap chemistry supports visible transparency for optical stacks"
+          ]
+        },
+        "cand-006": {
+          "family": "functional oxide",
+          "motif": "silicate network former",
+          "mechanisms": [
+            "oxygen sublattice and cation chemistry tune band gap, defects, and dielectric response",
+            "wide-gap chemistry supports visible transparency for optical stacks"
+          ]
+        },
+        "cand-007": {
+          "family": "functional oxide",
+          "motif": "fluorite-derived high-k oxide",
+          "mechanisms": [
+            "oxygen sublattice and cation chemistry tune band gap, defects, and dielectric response",
+            "wide-gap chemistry supports visible transparency for optical stacks"
+          ]
+        },
+        "cand-008": {
+          "family": "functional oxide",
+          "motif": "bixbyite-like transparent conducting oxide",
+          "mechanisms": [
+            "oxygen sublattice and cation chemistry tune band gap, defects, and dielectric response",
+            "aliovalent doping or oxygen-vacancy control can tune transparent conductivity"
+          ]
+        },
+        "cand-009": {
+          "family": "functional oxide",
+          "motif": "fluorite-derived high-k oxide",
+          "mechanisms": [
+            "oxygen sublattice and cation chemistry tune band gap, defects, and dielectric response",
+            "wide-gap chemistry supports visible transparency for optical stacks"
+          ]
+        },
+        "cand-010": {
+          "family": "functional oxide",
+          "motif": "rutile-like oxide network",
+          "mechanisms": [
+            "oxygen sublattice and cation chemistry tune band gap, defects, and dielectric response",
+            "wide-gap chemistry supports visible transparency for optical stacks"
+          ]
+        },
+        "cand-011": {
+          "family": "III-nitride",
+          "motif": "wurtzite nitride lattice",
+          "mechanisms": [
+            "wurtzite polarity and alloying can enhance piezoelectric response"
+          ]
+        },
+        "cand-012": {
+          "family": "III-nitride",
+          "motif": "wurtzite nitride lattice",
+          "mechanisms": [
+            "wurtzite polarity and alloying can enhance piezoelectric response",
+            "wide-gap chemistry supports visible transparency for optical stacks"
+          ]
         }
       }
     },
@@ -633,6 +1373,22 @@
           "risks": [
             "supply risk for scarce transparent-electronics element"
           ]
+        },
+        "cand-009": {
+          "viability": 0.76,
+          "risks": []
+        },
+        "cand-010": {
+          "viability": 0.76,
+          "risks": []
+        },
+        "cand-011": {
+          "viability": 0.67,
+          "risks": []
+        },
+        "cand-012": {
+          "viability": 0.67,
+          "risks": []
         }
       }
     },

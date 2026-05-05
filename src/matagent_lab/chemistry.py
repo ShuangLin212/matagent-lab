@@ -22,6 +22,7 @@ ATOMIC_WEIGHTS = {
     "Cl": 35.45,
     "K": 39.098,
     "Ca": 40.078,
+    "Sc": 44.956,
     "Ti": 47.867,
     "V": 50.942,
     "Cr": 51.996,
@@ -73,6 +74,7 @@ ELECTRONEGATIVITY = {
     "Cl": 3.16,
     "K": 0.82,
     "Ca": 1.00,
+    "Sc": 1.36,
     "Ti": 1.54,
     "V": 1.63,
     "Cr": 1.66,
@@ -124,6 +126,7 @@ COVALENT_RADII_PM = {
     "Cl": 102,
     "K": 203,
     "Ca": 176,
+    "Sc": 170,
     "Ti": 160,
     "V": 153,
     "Cr": 139,
@@ -161,6 +164,7 @@ COVALENT_RADII_PM = {
 TOXIC_ELEMENTS = {"Pb", "Cd", "Hg", "As", "Be"}
 SUPPLY_RISK_ELEMENTS = {"In", "Ga", "Ge", "Ta", "Hf", "Pt", "Ir", "Ru", "Rh", "Pd", "Co"}
 TRANSITION_METALS = {
+    "Sc",
     "Ti",
     "V",
     "Cr",
@@ -181,6 +185,27 @@ TRANSITION_METALS = {
     "Au",
 }
 POLYMER_ELEMENTS = {"C", "H", "O", "N", "F", "Si", "S", "Cl"}
+
+PEROVSKITE_A_RADII_PM = {
+    "Ba": 161.0,
+    "Sr": 144.0,
+    "Pb": 149.0,
+    "K": 164.0,
+    "Na": 139.0,
+    "Bi": 136.0,
+    "Ca": 134.0,
+}
+
+PEROVSKITE_B_RADII_PM = {
+    "Ti": 60.5,
+    "Zr": 72.0,
+    "Nb": 64.0,
+    "Ta": 64.0,
+    "Sc": 74.5,
+    "Al": 53.5,
+}
+
+OXIDE_ION_RADIUS_PM = 140.0
 
 TOKEN_RE = re.compile(r"([A-Z][a-z]?|\(|\)|\d+(?:\.\d+)?)")
 
@@ -279,6 +304,7 @@ def featurize_formula(formula: str) -> dict[str, float]:
 
     density_proxy = clamp((weight / atoms) / max(radius_mean, 1.0) * 2.0, 0.05, 1.0)
     ionic_contrast = max(en_values) - min(en_values)
+    perovskite = estimate_perovskite_descriptors(counts)
 
     return {
         "num_elements": float(len(elements)),
@@ -296,6 +322,55 @@ def featurize_formula(formula: str) -> dict[str, float]:
         "supply_risk_fraction": supply_risk_fraction,
         "density_proxy": density_proxy,
         "lightness_score": 1.0 - density_proxy,
+        **perovskite,
+    }
+
+
+def estimate_perovskite_descriptors(counts: dict[str, float]) -> dict[str, float]:
+    oxygen = counts.get("O", 0.0)
+    if not math.isclose(oxygen, 3.0, rel_tol=0.0, abs_tol=0.08):
+        return {
+            "perovskite_tolerance_factor": 0.0,
+            "octahedral_factor": 0.0,
+            "perovskite_stability_score": 0.0,
+            "a_site_count": 0.0,
+            "b_site_count": 0.0,
+        }
+
+    a_count = sum(amount for element, amount in counts.items() if element in PEROVSKITE_A_RADII_PM)
+    b_count = sum(amount for element, amount in counts.items() if element in PEROVSKITE_B_RADII_PM)
+    if not math.isclose(a_count, 1.0, rel_tol=0.0, abs_tol=0.15) or not math.isclose(
+        b_count, 1.0, rel_tol=0.0, abs_tol=0.15
+    ):
+        return {
+            "perovskite_tolerance_factor": 0.0,
+            "octahedral_factor": 0.0,
+            "perovskite_stability_score": 0.0,
+            "a_site_count": round(a_count, 3),
+            "b_site_count": round(b_count, 3),
+        }
+
+    r_a = sum(
+        PEROVSKITE_A_RADII_PM[element] * amount
+        for element, amount in counts.items()
+        if element in PEROVSKITE_A_RADII_PM
+    ) / a_count
+    r_b = sum(
+        PEROVSKITE_B_RADII_PM[element] * amount
+        for element, amount in counts.items()
+        if element in PEROVSKITE_B_RADII_PM
+    ) / b_count
+    tolerance = (r_a + OXIDE_ION_RADIUS_PM) / (math.sqrt(2.0) * (r_b + OXIDE_ION_RADIUS_PM))
+    octahedral = r_b / OXIDE_ION_RADIUS_PM
+    tolerance_fit = 1.0 - abs(tolerance - 1.0) / 0.18
+    octahedral_fit = 1.0 - abs(octahedral - 0.46) / 0.12
+    stability = clamp(0.65 * tolerance_fit + 0.35 * octahedral_fit)
+    return {
+        "perovskite_tolerance_factor": round(tolerance, 3),
+        "octahedral_factor": round(octahedral, 3),
+        "perovskite_stability_score": round(stability, 3),
+        "a_site_count": round(a_count, 3),
+        "b_site_count": round(b_count, 3),
     }
 
 
@@ -323,7 +398,9 @@ def estimate_material_properties(formula: str, domain: str) -> dict[str, float]:
     toxicity_score = clamp(2.2 * features["toxic_fraction"])
     hpc_cost_hours = round(0.15 + 0.08 * features["atoms_per_formula"] + 0.18 * features["num_elements"], 3)
 
-    perovskite_like = {"Ba", "Sr", "Pb"} & elements and "Ti" in elements and "O" in elements
+    perovskite_like = features["perovskite_tolerance_factor"] > 0.0 or (
+        {"Ba", "Sr", "Pb"} & elements and "Ti" in elements and "O" in elements
+    )
     fluoropolymer_like = {"C", "F"} <= elements
     silicone_like = {"Si", "O", "C", "H"} <= elements
     shape_memory_like = {"Ni", "Ti"} <= elements
@@ -331,6 +408,7 @@ def estimate_material_properties(formula: str, domain: str) -> dict[str, float]:
     piezoelectric_score = clamp(
         (0.82 if perovskite_like else 0.12)
         + (0.18 if "Zr" in elements else 0.0)
+        + 0.18 * features["perovskite_stability_score"]
         + (0.16 if fluoropolymer_like else 0.0)
         - 0.22 * toxicity_score
     )
@@ -389,4 +467,3 @@ def estimate_material_properties(formula: str, domain: str) -> dict[str, float]:
         "modulus_proxy": round(modulus_proxy, 3),
         "domain_score": round(clamp(domain_score), 3),
     }
-

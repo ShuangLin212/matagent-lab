@@ -27,6 +27,7 @@ The current scoring functions are transparent heuristics, not validated physical
 - Parses chemical formulas, including fractional stoichiometries such as `Pb(Zr0.52Ti0.48)O3`.
 - Screens optical, electromechanical, perovskite-tolerance, density, toxicity, resource-risk, processability, and compute-cost signals.
 - Infers chemistry families, structural motifs, bonding character, likely mechanisms, and validation priorities.
+- Adds literature-informed design traces from Coscientist, ChemCrow, A-Lab, GNoME, SciAgents, and chemistry-agent reviews.
 - Scores synthesis viability, route complexity, and practical risk flags.
 - Ranks candidates against domain constraints with auditable agent traces.
 - Emits JSON reports, benchmark metrics, and Slurm templates for DFT, MD, or Monte Carlo follow-up.
@@ -95,7 +96,7 @@ Discovery reports include:
 - `ranked_results`: candidates, scores, constraint status, risks, routes, and next experiments
 - `metrics`: throughput, pass rate, retrieval coverage, viability, Pareto-front size, formula diversity, constraint satisfaction, and top score
 - `chemistry`: material family, structural motif, bonding character, mechanisms, tradeoffs, and validation priorities
-- `agent_traces`: retrieved evidence IDs, generated formulas, mechanism summaries, screening scores, and ranking artifacts
+- `agent_traces`: retrieved evidence IDs, generated formulas, mechanism summaries, literature-derived design principles, screening scores, and ranking artifacts
 
 Committed examples:
 
@@ -115,6 +116,7 @@ Task Config
   -> Mechanism Agent
   -> Synthesis Agent
   -> Critic Agent
+  -> Research Context Agent
   -> Ranked Report + HPC Templates
 ```
 

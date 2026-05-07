@@ -20,6 +20,8 @@ The system treats materials discovery as a multi-objective decision process rath
 
 `CriticAgent` combines evidence, simulated properties, constraints, and viability into a ranked report. This is where active-learning policies or human-in-the-loop review can choose the next experiment.
 
+`ResearchContextAgent` records how the package design maps to recent literature on chemistry agents, autonomous laboratories, large-scale materials discovery, and multi-agent hypothesis generation. This keeps the report grounded in scientific AI design patterns rather than only local heuristics.
+
 ## Evaluation Signals
 
 - Candidate throughput: how many materials the loop can screen per second.

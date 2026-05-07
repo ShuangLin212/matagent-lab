@@ -19,7 +19,7 @@
     "retrieval_k": 4,
     "max_candidates": 12
   },
-  "generated_at": "2026-05-05T19:07:00.212272+00:00",
+  "generated_at": "2026-05-07T14:28:27.672038+00:00",
   "ranked_results": [
     {
       "candidate": {
@@ -41,7 +41,7 @@
       "properties": {
         "num_elements": 3.0,
         "atoms_per_formula": 7.0,
-        "molecular_weight": 142.26500000000001,
+        "molecular_weight": 142.265,
         "mean_electronegativity": 2.6128571428571425,
         "std_electronegativity": 0.9595789893149462,
         "ionic_contrast": 2.13,
@@ -52,8 +52,8 @@
         "halogen_fraction": 0.0,
         "toxic_fraction": 0.0,
         "supply_risk_fraction": 0.0,
-        "density_proxy": 0.4397681607418856,
-        "lightness_score": 0.5602318392581144,
+        "density_proxy": 0.43976816074188557,
+        "lightness_score": 0.5602318392581145,
         "perovskite_tolerance_factor": 0.0,
         "octahedral_factor": 0.0,
         "perovskite_stability_score": 0.0,
@@ -1158,7 +1158,7 @@
   "metrics": {
     "elapsed_seconds": 0.0008,
     "candidate_count": 12.0,
-    "candidates_per_second": 15802.469,
+    "candidates_per_second": 14598.54,
     "pass_rate": 0.25,
     "mean_total_score": 0.503,
     "mean_viability_score": 0.732,
@@ -1398,6 +1398,69 @@
       "artifacts": {
         "top_candidate": "MgAl2O4",
         "pass_rate": 0.25
+      }
+    },
+    {
+      "agent": "ResearchContextAgent",
+      "summary": "Mapped literature lessons from autonomous chemistry and materials AI into package design principles.",
+      "artifacts": {
+        "design_principles": [
+          "tool-using autonomy",
+          "evidence-grounded retrieval",
+          "synthesis-aware ranking",
+          "mechanism-level interpretation",
+          "closed-loop HPC or lab validation",
+          "benchmarkable and auditable artifacts"
+        ],
+        "domain_hooks": [
+          "optical transparency and high-index stack validation",
+          "thin-film synthesis and humidity-aging feedback",
+          "scarce-element and toxicity constraints for wearable hardware"
+        ],
+        "top_literature": [
+          {
+            "key": "Coscientist",
+            "citation": "Boiko et al., Nature 2023",
+            "url": "https://doi.org/10.1038/s41586-023-06792-0",
+            "lesson": "LLM scientific agents should combine planning, documentation search, code execution, and experimental tool use.",
+            "package_mapping": "MatAgent Lab separates retrieval, candidate generation, simulation, mechanism reasoning, synthesis critique, and HPC job preparation into explicit agents."
+          },
+          {
+            "key": "ChemCrow",
+            "citation": "Bran et al., Nature Machine Intelligence 2024",
+            "url": "https://doi.org/10.1038/s42256-024-00832-8",
+            "lesson": "Chemistry agents become more reliable when LLM reasoning is augmented with expert tools instead of relying on free-form text alone.",
+            "package_mapping": "The package exposes tool-like modules for formula parsing, property screening, retrieval, benchmarking, and Slurm generation."
+          },
+          {
+            "key": "A-Lab",
+            "citation": "Szymanski et al., Nature 2023",
+            "url": "https://doi.org/10.1038/s41586-023-06734-w",
+            "lesson": "Autonomous inorganic discovery needs closed-loop synthesis planning, execution, characterization, and feedback.",
+            "package_mapping": "Synthesis viability, route notes, risk flags, and validation priorities are first-class report fields."
+          },
+          {
+            "key": "GNoME",
+            "citation": "Merchant et al., Nature 2023",
+            "url": "https://doi.org/10.1038/s41586-023-06735-9",
+            "lesson": "Materials discovery benefits from active-learning flywheels that connect model screening with higher-fidelity validation.",
+            "package_mapping": "Ranked candidates include Pareto-front metrics and HPC-ready DFT/MD/Monte Carlo follow-up hooks."
+          },
+          {
+            "key": "SciAgents",
+            "citation": "Ghafarollahi and Buehler, Advanced Materials 2024",
+            "url": "https://doi.org/10.1002/adma.202413523",
+            "lesson": "Multi-agent scientific discovery can use graph-style concept reasoning to generate hypotheses and mechanisms.",
+            "package_mapping": "The MechanismAgent infers chemistry families, structural motifs, bonding character, mechanism hypotheses, and validation priorities."
+          },
+          {
+            "key": "LLM agents in chemistry review",
+            "citation": "Ramos et al., Chemical Science 2025",
+            "url": "https://doi.org/10.1039/D4SC03921A",
+            "lesson": "Future chemistry agents require better benchmarks, interpretability, tool integration, and experimental collaboration.",
+            "package_mapping": "Reports include auditable traces, constraint metrics, formula diversity, Pareto-front size, risk flags, and extension points."
+          }
+        ]
       }
     }
   ]

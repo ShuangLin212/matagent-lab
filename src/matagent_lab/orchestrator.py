@@ -17,6 +17,7 @@ from .agents import (
 from .chemistry import parse_formula
 from .models import AgentTrace, DiscoveryReport, TaskSpec
 from .rag import ScientificRetrievalIndex
+from .research_context import build_research_context_trace
 
 
 class RunConfig:
@@ -68,6 +69,7 @@ class DiscoveryOrchestrator:
 
         elapsed_seconds = time.perf_counter() - start
         metrics = self._metrics(task, ranked_results, elapsed_seconds)
+        traces.append(build_research_context_trace(task))
         return DiscoveryReport(
             task=task,
             generated_at=datetime.now(timezone.utc).isoformat(),

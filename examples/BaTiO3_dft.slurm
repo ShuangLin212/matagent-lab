@@ -17,5 +17,5 @@ module load quantum-espresso
 export PYTHONPATH="${SLURM_SUBMIT_DIR}/src:${PYTHONPATH:-}"
 
 echo 'Starting dft workflow for BaTiO3'
-srun python workflows/run_dft.py --formula BaTiO3 --relax --bands
+srun python workflows/run_dft.py --formula BaTiO3 --engine qe --relax --bands
 echo 'Workflow complete'

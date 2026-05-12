@@ -38,6 +38,8 @@ def main(argv: list[str] | None = None) -> None:
     slurm.add_argument("--hours", type=int, default=4)
     slurm.add_argument("--nodes", type=int, default=1)
     slurm.add_argument("--ntasks", type=int, default=16)
+    slurm.add_argument("--dft-engine", choices=["qe", "vasp", "both"], default="qe")
+    slurm.add_argument("--md-potential", choices=["reaxff", "lj", "eam", "tersoff"], default="reaxff")
     slurm.add_argument("--out", help="Optional output Slurm path.")
 
     args = parser.parse_args(argv)
@@ -57,6 +59,8 @@ def main(argv: list[str] | None = None) -> None:
                 hours=args.hours,
                 nodes=args.nodes,
                 ntasks=args.ntasks,
+                dft_engine=args.dft_engine,
+                md_potential=args.md_potential,
             )
         )
         _write_or_print_text(script, args.out)
@@ -85,4 +89,3 @@ def _write_or_print_text(payload: str, out: str | None) -> None:
 
 if __name__ == "__main__":
     main()
-

@@ -31,6 +31,8 @@ The current scoring functions are transparent heuristics, not validated physical
 - Scores synthesis viability, route complexity, and practical risk flags.
 - Ranks candidates against domain constraints with auditable agent traces.
 - Emits JSON reports, benchmark metrics, and Slurm templates for DFT, MD, or Monte Carlo follow-up.
+- Prepares prototype DFT input decks for Quantum ESPRESSO and VASP, plus LAMMPS MD decks with ReaxFF, LJ, EAM, or Tersoff settings.
+- Writes automated SVG result previews for DFT and MD setup, screening descriptors, convergence traces, energy traces, and MD structural summaries.
 
 ## Quickstart
 
@@ -87,6 +89,29 @@ PYTHONPATH=src python -m matagent_lab slurm \
   --formula BaTiO3 \
   --workflow dft \
   --out runs/demo_BaTiO3_dft.slurm
+```
+
+Prepare local DFT inputs and a visual preview:
+
+```bash
+PYTHONPATH=src python workflows/run_dft.py \
+  --formula BaTiO3 \
+  --engine both \
+  --relax \
+  --bands
+```
+
+This writes Quantum ESPRESSO and VASP input decks under `runs/BaTiO3_dft_inputs/`,
+a JSON result file, and an SVG summary at `runs/BaTiO3_dft.svg`.
+
+Prepare a LAMMPS/ReaxFF MD input deck with chemical-potential sweep variables:
+
+```bash
+PYTHONPATH=src python workflows/run_md.py \
+  --formula BaTiO3 \
+  --potential reaxff \
+  --chemical-potential O=-4.5 \
+  --chemical-potential Ti=-7.1
 ```
 
 ## Outputs
